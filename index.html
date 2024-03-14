@@ -268,7 +268,15 @@ I(X;Y)=lim_{n\rightarrow\infty}\dfrac{1}{n}I(X_1,...,X_n;Y_1,...,Y_n)
 <ul>
 <li><p>几何分布：</p>
 <p><span class="math inline">\(P(x)=p(1-p)^{x-1}\)</span>, 均值<span
-class="math inline">\(\dfrac{1}{p}\)</span></p></li>
+class="math inline">\(\dfrac{1}{p}\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+  I(X;Y)&amp;=D(P_{X,Y}||P_XP_Y) \\
+  &amp;=\sum_{(x,y)\in X(\Omega)\times
+Y(\Omega)}P_{X,Y}(x,y)log\dfrac{P_{X,Y}(x,y)}{P_X(x)P_Y(y)} \\
+  i(x;y)&amp;=log\dfrac{P_{X,Y}(x,y)}{P_X(x)P_Y(y)}
+\end{aligned}
+\]</span></p></li>
 </ul>
 
       
