@@ -153,75 +153,122 @@
     <div class="article-entry" itemprop="articleBody">
       
         <!-- toc -->
-
-<h1 id="信息论笔记"><a href="#信息论笔记" class="headerlink" title="信息论笔记"></a>信息论笔记</h1><h2 id="2-definition"><a href="#2-definition" class="headerlink" title="2 definition"></a>2 definition</h2><h3 id="2-1-离散概率"><a href="#2-1-离散概率" class="headerlink" title="2.1 离散概率"></a>2.1 离散概率</h3><ul>
+<h1 id="信息论笔记">信息论笔记</h1>
+<h2 id="definition">2 definition</h2>
+<h3 id="离散概率">2.1 离散概率</h3>
+<ul>
 <li><p>概率的性质：</p>
-<ol>
-<li>$P(\Omega)&#x3D;1$</li>
-<li>$p(\cup^n_{i&#x3D;1}A_i)&#x3D;\sum^n_{i&#x3D;1}P(A_i))$,$A_i$之间独立</li>
-</ol>
-</li>
+<ol type="1">
+<li><span class="math inline">\(P(\Omega)=1\)</span></li>
+<li><span
+class="math inline">\(p(\cup^n_{i=1}A_i)=\sum^n_{i=1}P(A_i))\)</span>,<span
+class="math inline">\(A_i\)</span>之间独立</li>
+</ol></li>
 <li><p>贝叶斯公式:</p>
-<p>$$<br>P_{X|Y}(x|y)&#x3D;\dfrac{P_{Y|X}(y|x)P_X(x)}{P_Y(y)}<br>$$</p>
-</li>
-<li><p>条件独立&#x2F;马尔可夫链：</p>
-<p>$$<br>\begin{aligned}<br>  &amp;P_{X,Z|Y}(x,z|y)&#x3D;P_{X|Y}(x|y)P_{Z|Y}(z|y)<br>\end{aligned}<br>$$</p>
-<p>$$<br>X\leftrightarrow Y\leftrightarrow Z<br>$$</p>
-</li>
-<li><p>独立与不相关：<br>独立$\rightarrow$不相关,不相关推不出独立</p>
-</li>
+<p><span class="math display">\[
+P_{X|Y}(x|y)=\dfrac{P_{Y|X}(y|x)P_X(x)}{P_Y(y)}
+\]</span></p></li>
+<li><p>条件独立/马尔可夫链：</p>
+<p><span class="math display">\[
+\begin{aligned}
+  &amp;P_{X,Z|Y}(x,z|y)=P_{X|Y}(x|y)P_{Z|Y}(z|y)
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+X\leftrightarrow Y\leftrightarrow Z
+\]</span></p></li>
+<li><p>独立与不相关：<br />
+独立<span
+class="math inline">\(\rightarrow\)</span>不相关,不相关推不出独立</p></li>
 <li><p>条件期望：</p>
-<p>$$<br>E[F(X)|y]&#x3D;\sum_{x\in X(\Omega)}F(x)P_{X|Y}(x|y)<br>$$</p>
-</li>
+<p><span class="math display">\[
+E[F(X)|y]=\sum_{x\in X(\Omega)}F(x)P_{X|Y}(x|y)
+\]</span></p></li>
 <li><p>全期望公式：</p>
-<p>$$<br>E[X]&#x3D;E[E[X|Y]]<br>$$</p>
-</li>
+<p><span class="math display">\[
+E[X]=E[E[X|Y]]
+\]</span></p></li>
 <li><p>依概率收敛：</p>
-<p>$$<br>lim_{n\rightarrow \infty}P(|X_n-X|&lt;\epsilon)&#x3D;1<br>$$</p>
-<p>$$<br>X_n\rightarrow X<br>$$</p>
-</li>
+<p><span class="math display">\[
+lim_{n\rightarrow \infty}P(|X_n-X|&lt;\epsilon)=1
+\]</span></p>
+<p><span class="math display">\[
+X_n\rightarrow X
+\]</span></p></li>
 <li><p>弱大数定律：</p>
-<p>$$<br>Y_n&#x3D;\dfrac{X_1+X_2+…+X_n}{n},n&#x3D;1,2,…则Y_n\rightarrow E[X]<br>$$</p>
-</li>
+<p><span class="math display">\[
+Y_n=\dfrac{X_1+X_2+...+X_n}{n},n=1,2,...则Y_n\rightarrow E[X]
+\]</span></p></li>
 </ul>
-<h3 id="2-2-熵，联合熵，条件熵"><a href="#2-2-熵，联合熵，条件熵" class="headerlink" title="2.2 熵，联合熵，条件熵"></a>2.2 熵，联合熵，条件熵</h3><ul>
+<h3 id="熵联合熵条件熵">2.2 熵，联合熵，条件熵</h3>
+<ul>
 <li><p>信息：</p>
-<p>$$<br>i(x)&#x3D;log\frac{1}{P_X(x)}<br>$$</p>
-</li>
+<p><span class="math display">\[
+i(x)=log\frac{1}{P_X(x)}
+\]</span></p></li>
 <li><p>熵:</p>
-<p>$$<br>H(X)&#x3D;E[i(x)]&#x3D;-\sum_{x\in X(\Omega)}P_X(x)logP_X(x)<br>$$</p>
-</li>
+<p><span class="math display">\[
+H(X)=E[i(x)]=-\sum_{x\in X(\Omega)}P_X(x)logP_X(x)
+\]</span></p></li>
 <li><p>联合熵：</p>
-<p>$$<br>\begin{aligned}<br> h(X,Y)&amp;&#x3D;E[i(X,Y)]\<br> &amp;&#x3D;-\sum_{(x,y)\in X(\Omega)\times Y(\Omega)}P_{X,Y}(x,y)logP_{X,Y}(x,y)<br>\end{aligned}<br>$$</p>
-</li>
+<p><span class="math display">\[
+\begin{aligned}
+h(X,Y)&amp;=E[i(X,Y)] \\
+&amp;=-\sum_{(x,y)\in X(\Omega)\times
+Y(\Omega)}P_{X,Y}(x,y)logP_{X,Y}(x,y)
+\end{aligned}
+\]</span></p></li>
 <li><p>条件熵：</p>
-<p>$$<br>\begin{aligned}<br>H(Y|X&#x3D;x)&amp;&#x3D;-\sum_{y\in Y(\Omega)}P_{Y|X}(y|x)logP_{Y|X}(y|x)\<br> H(Y|X)&amp;&#x3D;-\sum_{x\in X(\Omega)}P_{X}(x)H(Y|X&#x3D;x)\<br> &amp;&#x3D;-\sum_{(x,y)\in X(\Omega)\times Y(\Omega)}P_{X,Y}(x,y)logP_{Y|X}(y|x)\<br> &amp;&#x3D;E[logP_{Y|X}(Y|X)]<br>\end{aligned}<br>$$</p>
-</li>
+<p><span class="math display">\[
+\begin{aligned}
+H(Y|X=x)&amp;=-\sum_{y\in Y(\Omega)}P_{Y|X}(y|x)logP_{Y|X}(y|x) \\
+H(Y|X)&amp;=-\sum_{x\in X(\Omega)}P_{X}(x)H(Y|X=x) \\
+&amp;=-\sum_{(x,y)\in X(\Omega)\times
+Y(\Omega)}P_{X,Y}(x,y)logP_{Y|X}(y|x) \\
+&amp;=E[logP_{Y|X}(Y|X)]
+\end{aligned}
+\]</span></p></li>
 </ul>
-<h3 id="2-3-相对熵和互信息"><a href="#2-3-相对熵和互信息" class="headerlink" title="2.3  相对熵和互信息"></a>2.3  相对熵和互信息</h3><ul>
+<h3 id="相对熵和互信息">2.3 相对熵和互信息</h3>
+<ul>
 <li><p>相对熵：</p>
-<p>$$<br>D(P||Q)&#x3D;\sum_{x\in X(\Omega)}P(x)log\dfrac{P(x)}{Q(x)}<br>$$</p>
-<p>$$<br>D(P||Q)\neq D(Q||P)<br>$$</p>
-</li>
+<p><span class="math display">\[
+D(P||Q)=\sum_{x\in X(\Omega)}P(x)log\dfrac{P(x)}{Q(x)}
+\]</span></p>
+<p><span class="math display">\[
+D(P||Q)\neq D(Q||P)
+\]</span></p></li>
 <li><p>互信息,互信息密度：</p>
-<p>$$<br>\begin{aligned}<br>I(X;Y)&amp;&#x3D;D(P_{X,Y}||P_XP_Y)\<br>&amp;&#x3D;\sum_{(x,y)\in X(\Omega)\times Y(\Omega)}P_{X,Y}(x,y)log\dfrac{P_{X,Y}(x,y)}{P_X(x)P_Y(y)}\<br>i(x;y)&amp;&#x3D;log\dfrac{P_{X,Y}(x,y)}{P_X(x)P_Y(y)}<br>\end{aligned}<br>$$</p>
-</li>
+<p><span class="math display">\[
+\begin{aligned}
+  I(X;Y)&amp;=D(P_{X,Y}||P_XP_Y) \\
+  &amp;=\sum_{(x,y)\in X(\Omega)\times
+Y(\Omega)}P_{X,Y}(x,y)log\dfrac{P_{X,Y}(x,y)}{P_X(x)P_Y(y)} \\
+  i(x;y)&amp;=log\dfrac{P_{X,Y}(x,y)}{P_X(x)P_Y(y)}
+\end{aligned}
+\]</span></p></li>
 <li><p>条件互信息：</p>
-<p>$$<br>I(X;Y|Z)&#x3D;\sum_{(x,y,z)\in X(\Omega)\times Y(\Omega)\times Z(\Omega)}P_{X,Y,Z}(x,y,z)log\dfrac{P_{X,Y|Z}(x,y|z)}{P_{X|Z}(x|z)P_{Y|Z}(y|z)}<br>$$</p>
-</li>
+<p><span class="math display">\[
+I(X;Y|Z)=\sum_{(x,y,z)\in X(\Omega)\times Y(\Omega)\times
+Z(\Omega)}P_{X,Y,Z}(x,y,z)log\dfrac{P_{X,Y|Z}(x,y|z)}{P_{X|Z}(x|z)P_{Y|Z}(y|z)}
+\]</span></p></li>
 </ul>
-<h3 id="2-4-熵率"><a href="#2-4-熵率" class="headerlink" title="2.4 熵率"></a>2.4 熵率</h3><ul>
+<h3 id="熵率">2.4 熵率</h3>
+<ul>
 <li><p>熵率：</p>
-<p>$$<br>H(X)&#x3D;lim_{n\rightarrow\infty}\dfrac{1}{n}H(X_1,X_2,…,X_n)<br>$$</p>
-</li>
+<p><span class="math display">\[
+H(X)=lim_{n\rightarrow\infty}\dfrac{1}{n}H(X_1,X_2,...,X_n)
+\]</span></p></li>
 <li><p>互信息率：</p>
-<p>$$<br>I(X;Y)&#x3D;lim_{n\rightarrow\infty}\dfrac{1}{n}I(X_1,…,X_n;Y_1,…,Y_n)<br>$$</p>
-</li>
+<p><span class="math display">\[
+I(X;Y)=lim_{n\rightarrow\infty}\dfrac{1}{n}I(X_1,...,X_n;Y_1,...,Y_n)
+\]</span></p></li>
 </ul>
-<h3 id="2-5-常见分布"><a href="#2-5-常见分布" class="headerlink" title="2.5 常见分布"></a>2.5 常见分布</h3><ul>
+<h3 id="常见分布">2.5 常见分布</h3>
+<ul>
 <li><p>几何分布：</p>
-<p>$P(x)&#x3D;p(1-p)^{x-1}$, 均值$\dfrac{1}{p}$</p>
-</li>
+<p><span class="math inline">\(P(x)=p(1-p)^{x-1}\)</span>, 均值<span
+class="math inline">\(\dfrac{1}{p}\)</span></p></li>
 </ul>
 
       
