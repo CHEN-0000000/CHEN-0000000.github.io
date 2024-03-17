@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2024 | chen00_blog</title>
+  <title>现代通信原理 | chen00_blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="chen00_blog">
-<meta property="og:url" content="http://example.com/archives/2024/index.html">
+  <meta name="description" content="第二章 确知信号  2.1 确知信号的类型 2.2确知信号的频域性质 2.3 确知信号的时域性质  第四章 信道  4.3 信道数学模型 4.4 信道特性对信号传输的影响 4.5 信道噪声 4.6 信道容量    第二章 确知信号 2.1 确知信号的类型  能量信号：能量有限，平均功率为0 功率信号：功率有限，能量无穷大  2.2确知信号的频域性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="现代通信原理">
+<meta property="og:url" content="http://example.com/2024/03/17/%E7%8E%B0%E4%BB%A3%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="chen00_blog">
+<meta property="og:description" content="第二章 确知信号  2.1 确知信号的类型 2.2确知信号的频域性质 2.3 确知信号的时域性质  第四章 信道  4.3 信道数学模型 4.4 信道特性对信号传输的影响 4.5 信道噪声 4.6 信道容量    第二章 确知信号 2.1 确知信号的类型  能量信号：能量有限，平均功率为0 功率信号：功率有限，能量无穷大  2.2确知信号的频域性">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-03-17T14:10:25.000Z">
+<meta property="article:modified_time" content="2024-03-17T14:11:10.676Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -130,37 +134,232 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-现代通信原理笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/03/17/%E7%8E%B0%E4%BB%A3%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2024-03-17T14:10:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/17/%E7%8E%B0%E4%BB%A3%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/">现代通信原理</a>
+    <h1 class="article-title" itemprop="name">
+      现代通信原理
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2024/03/17/%E7%8E%B0%E4%BB%A3%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2024-03-17T14:10:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<ul>
+<li><a href="#第二章-确知信号">第二章 确知信号</a>
+<ul>
+<li><a href="#21-确知信号的类型">2.1 确知信号的类型</a></li>
+<li><a href="#22确知信号的频域性质">2.2确知信号的频域性质</a></li>
+<li><a href="#23-确知信号的时域性质">2.3 确知信号的时域性质</a></li>
+</ul></li>
+<li><a href="#第四章-信道">第四章 信道</a>
+<ul>
+<li><a href="#43-信道数学模型">4.3 信道数学模型</a></li>
+<li><a href="#44-信道特性对信号传输的影响">4.4
+信道特性对信号传输的影响</a></li>
+<li><a href="#45-信道噪声">4.5 信道噪声</a></li>
+<li><a href="#46-信道容量">4.6 信道容量</a></li>
+</ul></li>
+</ul>
+<!-- tocstop -->
+<h2><span id="第二章-确知信号">第二章 确知信号</span></h2>
+<h3><span id="21-确知信号的类型">2.1 确知信号的类型</span></h3>
+<ul>
+<li>能量信号：能量有限，平均功率为0</li>
+<li>功率信号：功率有限，能量无穷大</li>
+</ul>
+<h3><span id="22确知信号的频域性质">2.2确知信号的频域性质</span></h3>
+<ul>
+<li>以<span class="math inline">\(\omega\)</span>为自变量的频谱密度是以<span class="math inline">\(f\)</span>为自变量的频谱密度的<span class="math inline">\(2\pi\)</span>倍</li>
+<li>频域卷积性质：<span class="math inline">\(p(t)x(t)-&gt;\dfrac{1}{2\pi}P(\omega)*X(\omega)\)</span></li>
+</ul>
+<h4><span id="221-功率信号的频谱">2.2.1 功率信号的频谱</span></h4>
+<p>频谱：离散版 频谱密度：连续版</p>
+<ul>
+<li>频谱：<span class="math inline">\(C_n=C(nf_0)=\dfrac{1}{T_0}\int^{T_0/2}_{-T_0/2}s(t)e^{-j2\pi
+ntf_0}dt\)</span></li>
+<li>展开为傅里叶级数：<span class="math inline">\(s(t)=\sum^{\infty}_{-\infty}C_ne^{j2\pi
+nt/T_0}\)</span></li>
+</ul>
+<h4><span id="222-能量信号的频谱密度">2.2.2 能量信号的频谱密度</span></h4>
+<ul>
+<li>频谱密度：<span class="math inline">\(S(f)=\int^{\infty}_{-\infty}s(t)e^{-j2\pi
+ft}dt\)</span></li>
+<li>原信号：<span class="math inline">\(S(T)=\int^{\infty}_{-\infty}S(f)e^{j2\pi
+ft}df\)</span></li>
+</ul>
+<h4><span id="223能量信号的能量谱密度">2.2.3能量信号的能量谱密度</span></h4>
+<ul>
+<li><p><span class="math inline">\(E=\int^{\infty}_{-\infty}s^2(t)dt\)</span></p></li>
+<li><p>巴塞伐尔定理：<span class="math inline">\(E=\int^{\infty}_{-\infty}|S(f)|^2df\)</span></p></li>
+<li><p>能量谱密度：<span class="math inline">\(G(f)=|S(f)|^2\)</span></p></li>
+<li><p><span class="math inline">\(s(t)\)</span>为实函数时，有：<span class="math inline">\(E=2\int^{\infty}_{0}G(f)df\)</span></p></li>
+</ul>
+<h4><span id="224功率信号的功率谱密度">2.2.4功率信号的功率谱密度</span></h4>
+<ul>
+<li><p><span class="math inline">\(E=\int^{T/2}_{-T/2}s^2_T(t)dt=\int^{\infty}_{-\infty}|S_T(f)|^2df\)</span></p></li>
+<li><p>功率谱密度：<span class="math inline">\(P(f)=lim_{T-&gt;0}\dfrac{1}{T}|S_T(f)|^2\)</span></p></li>
+<li><p>信号功率：<span class="math inline">\(P=\int^{\infty}_{-\infty}P(f)df\)</span></p></li>
+<li><p>周期信号：<span class="math inline">\(P=\dfrac{1}{T_0}\int^{T_0/2}_{-T_0/2}s^2(t)dt\)</span>,由巴塞伐尔，有<span class="math inline">\(P=\sum^{+\infty}_{n=-\infty}|C_n|^2\)</span>】</p>
+<p>功率谱密度：<span class="math inline">\(P(f)=\sum^{\infty}_{n=-\infty}|C(f)|^2\delta(f-nf_0)\)</span></p></li>
+</ul>
+<h3><span id="23-确知信号的时域性质">2.3 确知信号的时域性质</span></h3>
+<h4><span id="231-能量信号的自相关函数">2.3.1 能量信号的自相关函数</span></h4>
+<ul>
+<li>自相关函数的定义：<span class="math inline">\(R(\tau)=\int^{\infty}_{-\infty}s(t)s(t+\tau)dt\)</span></li>
+<li><span class="math inline">\(R(\tau)\)</span>为偶函数</li>
+<li>与能量谱密度的关系：<span class="math inline">\(R(\tau)=\int^{\infty}_{-\infty}|S^2(f)|e^{j2\pi
+f\tau}df\)</span></li>
+</ul>
+<h2><span id="第四章-信道">第四章 信道</span></h2>
+<h3><span id="43-信道数学模型">4.3 信道数学模型</span></h3>
+<h4><span id="431-调制信道模型">4.3.1 调制信道模型</span></h4>
+<p><span class="math display">\[
+r(t)=s_0(t)+n(t)
+\]</span> <span class="math display">\[
+s_o(t)=f[s_i(t)]=c(t)*s_i(t)
+\]</span> <span class="math display">\[
+S_o(\omega)=C(\omega)S_i(\omega)
+\]</span></p>
+<p>不同物理信道具有不同的特性<span class="math inline">\(C(\omega)\)</span></p>
+<ul>
+<li>随参信道：特性随时间随机变化</li>
+<li>恒参信道：特性基本不随时间变化</li>
+</ul>
+<h4><span id="432-编码信道模型">4.3.2 编码信道模型</span></h4>
+<p>e.g. 二进制无记忆编码信道模型误码率：</p>
+<p><span class="math display">\[
+P_e=p(0)p(1/0)+p(1)p(0/1)
+\]</span></p>
+<h3><span id="44-信道特性对信号传输的影响">4.4 信道特性对信号传输的影响</span></h3>
+<h4><span id="441恒参信道特性及其对信号传输的影响">4.4.1
+恒参信道特性及其对信号传输的影响</span></h4>
+<ul>
+<li><p>传输特性 <span class="math display">\[
+H(\omega)=|H(\omega)|e^{j\Phi(\omega)}
+\]</span></p></li>
+<li><p>无失真传输 <span class="math display">\[
+H(\omega)=Ke^{-j\omega t_d}
+\]</span></p>
+<ul>
+<li>恒定时延+幅频特性为常数</li>
+<li>冲激响应： <span class="math display">\[
+h(t)=K\delta(t-t_d)
+\]</span></li>
+<li>理想恒参信道的输出： <span class="math display">\[
+s_o(t)=Ks(t-t_d)
+\]</span></li>
+</ul></li>
+<li><p>失真及其影响与措施</p>
+<ul>
+<li>幅频失真:<span class="math inline">\(|H(\omega)\neq K\)</span>
+<ul>
+<li>模拟信号：波形失真</li>
+<li>数字信号：码间串扰</li>
+</ul></li>
+<li>相频失真：<span class="math inline">\(\Phi(\omega)\neq \omega
+t_d\)</span></li>
+<li>群延迟失真：<span class="math inline">\(\tau(\omega)\neq
+t_d\)</span>
+<ul>
+<li>语音影响不大，视频影响大</li>
+<li>对数字信号造成码间串扰</li>
+</ul></li>
+</ul></li>
+</ul>
+<h4><span id="442随参信道特性及其对信号传输的影响">4.4.2
+随参信道特性及其对信号传输的影响</span></h4>
+<ul>
+<li><p>多径效应</p>
+<p>发送信号： <span class="math display">\[
+s(t)=Acos\omega_c t
+\]</span> 接收信号： <span class="math display">\[
+\begin{aligned}
+  r(t)&amp;=\sum^{n}_{i=1}a_i(t)cos[\omega_c t+\varphi_i(t)]\\
+  &amp;=X(t)cos\omega_c t-Y(t)sin\omega_c t\\
+  &amp;=V(t)cos[\omega_c t+\varphi(t)]
+\end{aligned}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(V(t)\)</span>瑞利分布</li>
+<li><span class="math inline">\(\varphi(t)\)</span>均匀分布</li>
+<li><span class="math inline">\(X(t),Y(t)\)</span>在n足够大时趋于正态分布</li>
+</ul>
+<p>结论：多径传播引起瑞利型衰落和频率弥散</p></li>
+<li><p>两径情况</p>
+<p>接收信号： <span class="math display">\[
+f_o(t)=Kf(t-\tau_1)+Kf(t-\tau_2)
+\]</span> <span class="math display">\[
+F_o(\omega)=KF(\omega)e^{-j\omega\tau_1}+KF(\omega)e^{-j\omega(\tau_1+\tau)}
+\]</span> 信道传输函数： <span class="math display">\[
+H(\omega)=Ke^{-j\omega \tau_1}(1+e^{-j\omega\tau})
+\]</span> 幅频特性： <span class="math display">\[
+|H(\omega)|=2|cos\dfrac{\omega\tau}{2}|
+\]</span></p>
+<ul>
+<li>频率选择性衰落</li>
+<li>信号相关带宽：<span class="math inline">\(\Delta
+f=1/\tau_m\)</span>,为相邻传输零点之间的频率间隔</li>
+<li>信号带宽<span class="math inline">\(B_s=(1/3\sim1/5)\Delta
+f\)</span></li>
+<li>数字信号码元宽度：<span class="math inline">\(T_s=(3\sim
+5)\tau_m\)</span></li>
+</ul></li>
+</ul>
+<h3><span id="45-信道噪声">4.5 信道噪声</span></h3>
+<h4><span id="451-白噪声">4.5.1 白噪声</span></h4>
+<ul>
+<li>功率谱密度 <span class="math display">\[
+P_n(f)=\dfrac{n_0}{2}
+\]</span></li>
+<li>自相关函数 <span class="math display">\[
+R_n(\tau)=\dfrac{n_0}{2}\delta(\tau)
+\]</span></li>
+</ul>
+<h4><span id="452-理想低通白噪声">4.5.2 理想低通白噪声</span></h4>
+<ul>
+<li>功率谱：<span class="math inline">\(P_n(\omega)=n_0/2,|\omega|\leq\Omega\)</span></li>
+</ul>
+<h4><span id="453-窄带高斯噪声">4.5.3 窄带高斯噪声</span></h4>
+<h3><span id="46-信道容量">4.6 信道容量</span></h3>
+<p>指信道能够传输的最大平均信息速率</p>
+<h4><span id="461-离散信道容量">4.6.1 离散信道容量</span></h4>
+<ul>
+<li><p>每个符号能够传输的平均信息量最大值： <span class="math display">\[
+C=max_{P(x)}[H(x)-H(x/y)]
+\]</span></p>
+<ul>
+<li>信源的熵； <span class="math display">\[
+H(x)=-\sum^n_{i=1}P(x_i)log_2P(x_i)
+\]</span></li>
+<li>接收符号已知后，发送符号的平均信息量： <span class="math display">\[
+H(x|y)=-\sum^m_{j=1}\sum^n_{i=1}P(xi|y_j)log_2P(x_i|y_j)
+\]</span> 因噪声而损失的平均信息量</li>
+</ul></li>
+<li><p>单位时间内能够传输的平均信息量最大值<span class="math inline">\(C_t\)</span>:</p>
+<p>r：单位时间内信道传输的符号数 <span class="math display">\[
+C_t=max_{P(x)}{r[H(x)-H(x/y)]}
+\]</span></p></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -173,93 +372,119 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/03/17/%E7%8E%B0%E4%BB%A3%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/03/17/%E5%BE%AE%E6%B3%A2%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2024-03-17T07:58:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-17</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2024/03/17/%E5%BE%AE%E6%B3%A2%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">微波技术基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/17/%E5%BE%AE%E6%B3%A2%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/">微波技术基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微波技术基础//" class="article-tag-list-link color2">微波技术基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">第二章 确知信号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">2.1 确知信号的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">2.2确知信号的频域性质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.2.1 功率信号的频谱</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2.2 能量信号的频谱密度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.2.3能量信号的能量谱密度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.2.4功率信号的功率谱密度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">2.3 确知信号的时域性质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.3.1.</span> <span class="toc-text">2.3.1 能量信号的自相关函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">第四章 信道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">4.3 信道数学模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.1.1.</span> <span class="toc-text">4.3.1 调制信道模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.1.2.</span> <span class="toc-text">4.3.2 编码信道模型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">4.4 信道特性对信号传输的影响</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.2.1.</span> <span class="toc-text">4.4.1
+恒参信道特性及其对信号传输的影响</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.2.2.</span> <span class="toc-text">4.4.2
+随参信道特性及其对信号传输的影响</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">4.5 信道噪声</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.1.</span> <span class="toc-text">4.5.1 白噪声</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.2.</span> <span class="toc-text">4.5.2 理想低通白噪声</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.3.</span> <span class="toc-text">4.5.3 窄带高斯噪声</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.4.</span> <span class="toc-text">4.6 信道容量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.4.1.</span> <span class="toc-text">4.6.1 离散信道容量</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/03/13/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2024-03-13T08:40:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/13/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B0/">信息论</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/信息论//" class="article-tag-list-link color4">信息论</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -282,8 +507,8 @@
 	var yiliaConfig = {
 		mathjax: [object Object],
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
