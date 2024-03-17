@@ -132,6 +132,311 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-微波技术基础笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/03/17/%E5%BE%AE%E6%B3%A2%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/">微波技术基础</a>
+    </h1>
+  
+
+        
+        <a href="/2024/03/17/%E5%BE%AE%E6%B3%A2%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2024-03-17T07:58:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<h2 id="第二章-传输线理论">第二章 传输线理论</h2>
+<h3 id="传输线方程">2.1 传输线方程</h3>
+<ul>
+<li><p><strong>传输线的电路模型</strong></p>
+<p>分布参数网络：<span
+class="math inline">\(R_1,L_1,C_1,G_1\)</span>/均匀传输线</p></li>
+<li><p><strong>传输线方程</strong></p>
+<p><span class="math display">\[
+  V(z)=A_1e^{-\gamma a}+A_2e^{\gamma a}
+\]</span></p>
+<p><span class="math display">\[
+  I(z)=\dfrac{1}{Z_0}(A_1e^{-\gamma a}-A_2e^{\gamma a})
+\]</span></p>
+<ul>
+<li><p>终端条件解：将<span
+class="math inline">\(z=l\)</span>带入原方程，并换用坐标<span
+class="math inline">\(d=l-z\)</span><br />
+<span class="math display">\[
+V(d)=\frac{V_L+I_LZ_0}{2}e^{\gamma d}+\frac{V_L-I_LZ_0}{2}e^{-\gamma d}
+\]</span></p>
+<p><span class="math display">\[
+I(d)=\frac{V_L+I_LZ_0}{2Z_0}e^{\gamma
+d}-\frac{V_L-I_LZ_0}{2Z_0}e^{-\gamma d}
+\]</span></p></li>
+</ul></li>
+<li><p><strong>传输线的特性参数</strong></p>
+<ul>
+<li><p>特性阻抗<span class="math inline">\(Z_0\)</span>:</p>
+<p>传输线上行波的电压与电流之比 <span class="math display">\[
+  Z_0=\sqrt{\dfrac{R_1+j\omega L_1}{G_1+j\omega C_1}}
+  \]</span></p></li>
+<li><p>传播常数<span class="math inline">\(\gamma\)</span>:</p>
+<p>描述导行波传播过程中的衰减和相位变化的参数<br />
+无耗线/微波低耗线： <span class="math display">\[
+  \gamma=j\beta=\omega\sqrt{L_1C_1}
+\]</span></p>
+<p><span class="math display">\[
+  \beta=\dfrac{2\pi}{\lambda}
+\]</span></p></li>
+</ul></li>
+</ul>
+<h3 id="分布参数阻抗">2.2分布参数阻抗</h3>
+<ul>
+<li><p><strong>分布参数阻抗</strong></p>
+<p><span class="math inline">\(Z_{in}(d)\)</span>该点电压与电流之比</p>
+<p><span class="math display">\[
+      Z_{in}(d)=Z_0\dfrac{Z_L+Z_0th\gamma d}{Z_0+Z_Lth\gamma d}
+  \]</span></p>
+<p>对于无耗线，有</p>
+<p><span class="math display">\[
+      Z_{in}(d)=Z_0\dfrac{Z_L+jZ_0tg\beta d}{Z_0+jZ_Ltg\beta d}
+  \]</span></p></li>
+<li><p><strong>反射参量</strong></p>
+<ul>
+<li><p>反射系数<span class="math inline">\(\Gamma\)</span>：</p>
+<p>该点反射波电压与入射波电压之间的比值</p>
+<p><span class="math display">\[
+  \Gamma(d)=\dfrac{V_L-I_LZ_0}{V_L+I_LZ_0}e^{-2\gamma
+d}=\dfrac{Z_L-Z_0}{Z_L+Z_0}e^{-2\gamma d}=\Gamma_Le^{-2\gamma d}
+\]</span></p></li>
+</ul>
+<p><span class="math display">\[
+  \Gamma_L=\dfrac{Z_L-Z_0}{Z_L+Z_0}=|\dfrac{Z_L-Z_0}{Z_L+Z_0}|e^{j\Phi_L}
+  \]</span></p>
+<ul>
+<li><p>阻抗和反射系数之间的关系：</p>
+<p><span class="math display">\[
+  Z_{in}(d)=Z_0\dfrac{1+\Gamma(d)}{1-\Gamma(d)}
+  \]</span></p>
+<p><span class="math display">\[
+  \Gamma(d)=\dfrac{Z_{in}(d)-Z_0}{Z_{in}(d)+Z_0}
+  \]</span></p></li>
+<li><p>归一化阻抗：</p>
+<p><span class="math display">\[
+  z_{in}(d)=\dfrac{Z_{i}(d)}{Z_0}=\dfrac{1+\Gamma(d)}{1-\Gamma(d)}
+\]</span></p></li>
+</ul></li>
+<li><p><strong>驻波参量</strong></p>
+<ul>
+<li><p>电压驻波比<span class="math inline">\(S\)</span></p>
+<p>传输线上相邻的波腹点和波谷点的电压振幅之比</p>
+<p><span class="math display">\[
+  S=\dfrac{|V|_{max}}{|V|_{min}}
+\]</span></p></li>
+<li><p>行波系数<span class="math inline">\(K\)</span></p>
+<p><span class="math display">\[
+K=\dfrac{1}{S}=\dfrac{|V|_{min}}{|V|_{max}}
+\]</span></p></li>
+<li><p>和反射系数的关系</p>
+<p><span class="math display">\[
+S=\dfrac{1+|\Gamma_L|}{1-|\Gamma_L|}
+\]</span></p>
+<p><span class="math display">\[
+|\Gamma_L|=\dfrac{S-1}{S+1}
+\]</span></p></li>
+</ul></li>
+<li><p><strong>阻抗和驻波参量的关系</strong></p>
+<p><span class="math inline">\(Z_0\)</span>一定时，<span
+class="math inline">\(Z_L\)</span>和驻波参量一一对应，<span
+class="math inline">\(d_{min}\)</span>为驻波最小点和负载之间的距离</p>
+<p><span class="math display">\[
+  Z_L=ZZ_0\dfrac{1-j\beta S tg\beta d_{min}}{S-jtg\beta d_{min}}
+  \]</span></p></li>
+</ul>
+<h3 id="无耗线工作状态分析">2.3 无耗线工作状态分析</h3>
+<ul>
+<li><p><strong>行波状态：无反射</strong></p>
+<ul>
+<li>条件：<span
+class="math inline">\(Z_L=Z_0,\Gamma_L=0,S=1,K=1\)</span></li>
+<li>特性分析:
+<ul>
+<li>沿线电压电流振幅不变</li>
+<li>电压电流同相，相位随增加连续滞后</li>
+<li>各点阻抗均等于特性阻抗</li>
+</ul></li>
+</ul></li>
+<li><p><strong>驻波状态：全反射</strong></p>
+<ul>
+<li>条件：<span class="math inline">\(Z_L=0\)</span> 或 <span
+class="math inline">\(Z_L=\infty\)</span> 或 <span
+class="math inline">\(Z_L=\pm jZ_L\)</span></li>
+<li>特性分析：
+<ul>
+<li><p>终端短路线（<span
+class="math inline">\(Z_L=0,\Gamma=-1,S=\infty\)</span>） <span
+class="math display">\[
+V(d)=j2V_L^+ sin\beta d
+\]</span></p>
+<p><span class="math display">\[
+I(d)=2I_L^+cos\beta d
+\]</span></p>
+<p><span class="math display">\[
+Z_{in}^{sc}(d)=jZ_0 tg \beta d
+\]</span></p>
+<p>输入均为纯电抗，<span
+class="math inline">\(\lambda/4\)</span>处开路（并联谐振）</p></li>
+<li><p>终端开路线（<span
+class="math inline">\(Z_L=\infty,\Gamma_L=1,S=\infty\)</span>） <span
+class="math display">\[
+V(d)=j2V_L^+ cos\beta d
+\]</span></p>
+<p><span class="math display">\[
+I(d)=2I_L^+sin\beta d
+\]</span></p>
+<p><span class="math display">\[
+Z_{in}^{oc}(d)=-jZ_0 ctg \beta d
+\]</span></p>
+<p>输入均为纯电抗，<span
+class="math inline">\(\lambda/4\)</span>处短路（串联谐振）</p>
+<p><span class="math inline">\(Z_0,\beta\)</span>的测量： <span
+class="math display">\[
+Z_0=\sqrt{Z_{in}^{sc}(d)\cdot Z_{in}^{oc}(d)}
+\]</span> <span class="math display">\[
+\beta=\dfrac{1}{d}arctg\sqrt{\dfrac{Z_{in}^{sc}(d)}{Z_{in}^{oc}(d)}}
+\]</span></p></li>
+<li><p>终端接纯电抗负载无耗线</p>
+<p>任何电抗性负载都可以用一段适当长度的终端短路线或终端开路线来等效（延长线的长度要小于<span
+class="math inline">\(\lambda/4\)</span>）</p>
+<p><span class="math inline">\(X_L&gt;0\)</span>:<br />
+<span class="math display">\[
+l_0=\dfrac{1}{\beta}{ tan^{-1}\dfrac{X_L}{Z_0}}
+\]</span></p>
+<p><span class="math inline">\(X_L&gt;0\)</span>:<br />
+<span class="math display">\[
+l_0=\dfrac{1}{\beta}{ ctg^{-1}\dfrac{|X_L|}{Z_0}}
+\]</span></p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>行驻波状态：部分反射</strong></p>
+<ul>
+<li>条件：<span
+class="math inline">\(Z_L=R_L+jX_L,|\Gamma_L|&lt;1\)</span></li>
+<li>腹点和节点的位置：
+<ul>
+<li>电压驻波最大点 <span class="math display">\[
+d_{max}=\dfrac{\lambda}{4\pi}\Phi_L
+\]</span></li>
+<li>电压驻波最小点 <span class="math display">\[
+d_{min}=d_{max}\pm \dfrac{\lambda}{4}
+\]</span></li>
+<li>阻抗特性：
+<ul>
+<li><span class="math inline">\(\lambda/2\)</span>周期性：<span
+class="math inline">\(Z_{in}(z&#39;)=Z_{in}(z&#39;\pm
+\lambda/2)\)</span></li>
+<li><span class="math inline">\(\lambda/4\)</span>变换性：<span
+class="math inline">\(Z_{in}(z&#39;)=\dfrac{Z_0^2}{Z_{in}(z&#39;\pm
+\lambda/2)}\)</span></li>
+<li>波节点和波腹点的阻抗：均为纯电阻，且有 <span class="math display">\[
+R_{max}=SZ_0\geq Z_0
+\]</span> <span class="math display">\[
+R_{min}=KZ_0\leq Z_0
+\]</span> <span class="math display">\[
+R_{max}\cdot R_{min}=Z_0
+\]</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="传输功率与效率">2.4 传输功率与效率</h3>
+<ul>
+<li><p><strong>传输功率</strong></p>
+<ul>
+<li>复功率（平均） <span class="math display">\[
+P_{av}(z&#39;)=\dfrac{1}{2}U(z&#39;)I^*(z&#39;)=P(z&#39;)+jQ(z&#39;)
+\]</span></li>
+<li>无功功率 <span class="math display">\[
+Q(z&#39;)=\frac{1}{2}Im[U(z&#39;)I^*(z&#39;)]
+\]</span></li>
+<li>有功功率 <span class="math display">\[
+P(z&#39;)=\frac{1}{2}Re[U(z&#39;)I^*(z&#39;)]
+\]</span></li>
+</ul></li>
+<li><p><strong>无损传输线功率的计算</strong><br />
+任一点功率相等，用电流电压波腹点来计算传输功率 <span
+class="math display">\[
+  P(z&#39;)=\dfrac{1}{2}\dfrac{|U_{max}|^2}{Z_0}K=\frac{1}{2}|I_{max}|^2Z_0K
+\]</span><br />
+任一点传输功率等于该点入射功率与反射功率之差 <span
+class="math display">\[
+P(z&#39;)=P^+(z&#39;)-P^-(z&#39;)
+\]</span> 功率反射系数 <span class="math display">\[
+|\Gamma(z&#39;)|^2=\dfrac{P^-(z&#39;)}{P^+(z&#39;)}
+\]</span></p></li>
+<li><p><strong>有损传输线功率的计算</strong> <span
+class="math display">\[
+P(z&#39;)=P^+(z&#39;)-P^-(z&#39;)
+\]</span></p></li>
+<li><p><strong>传输线的功率容量</strong> <span class="math display">\[
+P_{br}=\dfrac{1}{2}\dfrac{|U_{br}|^2}{Z_0}K
+\]</span> 其中<span
+class="math inline">\(U_{br}\)</span>为击穿电压</p></li>
+<li><p><strong>传输线的传输效率</strong></p></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/微波技术基础//" class="article-tag-list-link color2">微波技术基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-信息论笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -153,7 +458,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <!-- toc -->
-<h1 id="信息论笔记">信息论笔记</h1>
 <h2 id="definition">2 definition</h2>
 <h3 id="离散概率">2.1 离散概率</h3>
 <ul>
