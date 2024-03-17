@@ -341,13 +341,30 @@ C=max_{P(x)}[H(x)-H(x/y)]
 H(x)=-\sum^n_{i=1}P(x_i)log_2P(x_i)
 \]</span></li>
 <li>接收符号已知后，发送符号的平均信息量： <span class="math display">\[
-H(x|y)=-\sum^m_{j=1}\sum^n_{i=1}P(xi|y_j)log_2P(x_i|y_j)
+H(x|y)=-\sum^m_{j=1}P(y_j)\sum^n_{i=1}P(xi|y_j)log_2P(x_i|y_j)
 \]</span> 因噪声而损失的平均信息量</li>
 </ul></li>
 <li><p>单位时间内能够传输的平均信息量最大值<span class="math inline">\(C_t\)</span>:</p>
 <p>r：单位时间内信道传输的符号数 <span class="math display">\[
 C_t=max_{P(x)}{r[H(x)-H(x/y)]}
 \]</span></p></li>
+</ul>
+<h4><span id="462-连续信道容量">4.6.2 连续信道容量</span></h4>
+<ul>
+<li>带宽有限，平均功率有限的高斯白噪声连续信道： <span class="math display">\[
+C_t=Blog_2(1+\dfrac{S}{N})=Blog_2(1+\dfrac{S}{n_0\cdot B})
+\]</span>
+<ul>
+<li>S:信号平均功率（W）</li>
+<li>B:信道带宽（Hz）</li>
+<li><span class="math inline">\(n_0\)</span>:噪声单边功率谱密度</li>
+<li>N：噪声功率</li>
+</ul></li>
+<li>若<span class="math inline">\(R_b\leq
+C\)</span>,则可以编码实现无差错传输</li>
+<li><span class="math inline">\(lim_{B\rightarrow\infty}C=1.44\dfrac{S}{n_0}\)</span></li>
+<li>信道带宽增大可以换取信噪比的降低，反之亦然</li>
+<li>信道带宽增大可以换取传输时间的减少</li>
 </ul>
 
       

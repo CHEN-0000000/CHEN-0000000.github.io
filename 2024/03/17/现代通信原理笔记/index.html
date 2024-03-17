@@ -16,7 +16,7 @@
 <meta property="og:description" content="第二章 确知信号  2.1 确知信号的类型 2.2确知信号的频域性质 2.3 确知信号的时域性质  第四章 信道  4.3 信道数学模型 4.4 信道特性对信号传输的影响 4.5 信道噪声 4.6 信道容量    第二章 确知信号 2.1 确知信号的类型  能量信号：能量有限，平均功率为0 功率信号：功率有限，能量无穷大  2.2确知信号的频域性">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-03-17T14:10:25.000Z">
-<meta property="article:modified_time" content="2024-03-17T14:11:10.676Z">
+<meta property="article:modified_time" content="2024-03-17T16:04:06.807Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -343,13 +343,30 @@ C=max_{P(x)}[H(x)-H(x/y)]
 H(x)=-\sum^n_{i=1}P(x_i)log_2P(x_i)
 \]</span></li>
 <li>接收符号已知后，发送符号的平均信息量： <span class="math display">\[
-H(x|y)=-\sum^m_{j=1}\sum^n_{i=1}P(xi|y_j)log_2P(x_i|y_j)
+H(x|y)=-\sum^m_{j=1}P(y_j)\sum^n_{i=1}P(xi|y_j)log_2P(x_i|y_j)
 \]</span> 因噪声而损失的平均信息量</li>
 </ul></li>
 <li><p>单位时间内能够传输的平均信息量最大值<span class="math inline">\(C_t\)</span>:</p>
 <p>r：单位时间内信道传输的符号数 <span class="math display">\[
 C_t=max_{P(x)}{r[H(x)-H(x/y)]}
 \]</span></p></li>
+</ul>
+<h4><span id="462-连续信道容量">4.6.2 连续信道容量</span></h4>
+<ul>
+<li>带宽有限，平均功率有限的高斯白噪声连续信道： <span class="math display">\[
+C_t=Blog_2(1+\dfrac{S}{N})=Blog_2(1+\dfrac{S}{n_0\cdot B})
+\]</span>
+<ul>
+<li>S:信号平均功率（W）</li>
+<li>B:信道带宽（Hz）</li>
+<li><span class="math inline">\(n_0\)</span>:噪声单边功率谱密度</li>
+<li>N：噪声功率</li>
+</ul></li>
+<li>若<span class="math inline">\(R_b\leq
+C\)</span>,则可以编码实现无差错传输</li>
+<li><span class="math inline">\(lim_{B\rightarrow\infty}C=1.44\dfrac{S}{n_0}\)</span></li>
+<li>信道带宽增大可以换取信噪比的降低，反之亦然</li>
+<li>信道带宽增大可以换取传输时间的减少</li>
 </ul>
 
       
@@ -465,7 +482,7 @@ C_t=max_{P(x)}{r[H(x)-H(x/y)]}
                     <div class="toc-article">
                     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">第二章 确知信号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">2.1 确知信号的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">2.2确知信号的频域性质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.2.1 功率信号的频谱</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2.2 能量信号的频谱密度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.2.3能量信号的能量谱密度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.2.4功率信号的功率谱密度</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">2.3 确知信号的时域性质</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.3.1.</span> <span class="toc-text">2.3.1 能量信号的自相关函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">第四章 信道</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">4.3 信道数学模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.1.1.</span> <span class="toc-text">4.3.1 调制信道模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.1.2.</span> <span class="toc-text">4.3.2 编码信道模型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">4.4 信道特性对信号传输的影响</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.2.1.</span> <span class="toc-text">4.4.1
 恒参信道特性及其对信号传输的影响</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.2.2.</span> <span class="toc-text">4.4.2
-随参信道特性及其对信号传输的影响</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">4.5 信道噪声</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.1.</span> <span class="toc-text">4.5.1 白噪声</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.2.</span> <span class="toc-text">4.5.2 理想低通白噪声</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.3.</span> <span class="toc-text">4.5.3 窄带高斯噪声</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.4.</span> <span class="toc-text">4.6 信道容量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.4.1.</span> <span class="toc-text">4.6.1 离散信道容量</span></a></li></ol></li></ol></li></ol>
+随参信道特性及其对信号传输的影响</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">4.5 信道噪声</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.1.</span> <span class="toc-text">4.5.1 白噪声</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.2.</span> <span class="toc-text">4.5.2 理想低通白噪声</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.3.3.</span> <span class="toc-text">4.5.3 窄带高斯噪声</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.4.</span> <span class="toc-text">4.6 信道容量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.4.1.</span> <span class="toc-text">4.6.1 离散信道容量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.4.2.</span> <span class="toc-text">4.6.2 连续信道容量</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
