@@ -132,6 +132,221 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-信息论笔记2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/03/19/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B02/">信息论第二章</a>
+    </h1>
+  
+
+        
+        <a href="/2024/03/19/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B02/" class="archive-article-date">
+  	<time datetime="2024-03-19T13:21:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<ul>
+<li><a href="#quantities-of-information-properties">Quantities of
+Information: Properties</a>
+<ul>
+<li><a href="#链式法则">链式法则</a></li>
+<li><a href="#非负性">非负性</a></li>
+<li><a href="#33-条件的影响">3.3 条件的影响</a></li>
+<li><a href="#34-法诺不等式">3.4 法诺不等式</a></li>
+<li><a href="#35-平稳过程的熵率">3.5 平稳过程的熵率</a></li>
+</ul></li>
+</ul>
+<!-- tocstop -->
+<h2><span id="quantities-of-informationproperties">Quantities of Information:
+Properties</span></h2>
+<h3><span id="链式法则">链式法则</span></h3>
+<ul>
+<li>熵的链式法则：
+<ul>
+<li>基础形式： <span class="math display">\[
+H(X,Y)=H(X)+H(Y|X)=H(Y)+H(X|Y)
+\]</span></li>
+<li>条件形式： <span class="math display">\[
+H(X,Y|Z)=H(X|Z)+H(Y|X,Z)
+\]</span></li>
+<li>一般形式： <span class="math display">\[
+H(X_1,X_2,...,X_n)=\sum^n_{i=1}H(X_i|X_{i-1},...,X_1)
+\]</span></li>
+</ul></li>
+<li>互信息的性质
+<ul>
+<li><p>对称性 <span class="math display">\[
+I(X;Y)=I(X;Y)
+\]</span></p></li>
+<li><p>自信息 <span class="math display">\[
+I(X;X)=H(X)
+\]</span></p></li>
+<li><p>分解 <span class="math display">\[
+\begin{aligned}
+I(X;Y)&amp;=H(X)-H(X|Y)   \\
+&amp;=H(Y)-H(Y|X)\\
+&amp;=H(X)+H(Y)-H(X,Y)
+\end{aligned}
+\]</span></p></li>
+<li><p>条件分解：<br>
+此处相当与X,Y的互信息一起对Z取条件，所以只需在熵后面都取条件即可 <span class="math display">\[
+\begin{aligned}
+    I(X;Y|Z)&amp;=H(X|Z)-H(X|Y,Z)\\
+    &amp;=H(Y|Z)-H(Y|X,Z)\\
+    &amp;=H(X|Z)+H(Y|Z)-H(X,Y|Z)
+\end{aligned}
+\]</span></p></li>
+</ul></li>
+<li>互信息的链式法则<br>
+和熵的链式法则形式一样，只需加上<span class="math inline">\(;Y\)</span>即可 <span class="math display">\[
+I(X_1,X_2,...,X_n;Y)=\sum^n_{i=1}I(X_i;Y|X_{i-1},...,X_1)
+\]</span></li>
+</ul>
+<h3><span id="非负性">非负性</span></h3>
+<ul>
+<li><p>相对熵的非负性:<br>
+<span class="math display">\[
+D(P||Q)\geq 0
+\]</span> 当且仅当<span class="math inline">\(P(x)=Q(x)\)</span>时取等</p>
+<ul>
+<li><p><strong>推论1</strong>(熵的取值范围):<br>
+<span class="math display">\[
+0\leq H(X)\leq log|X(\Omega)|
+\]</span> <span class="math inline">\(H(X)=0\)</span>当且仅当<span class="math inline">\(X\)</span>为常数，<span class="math inline">\(H(X)=log|X(\Omega)|\)</span>当且仅当<span class="math inline">\(X\)</span>为均匀分布</p></li>
+<li><p><strong>推论2</strong>(最大化熵)：<br>
+若<span class="math inline">\(EX=A&gt;1\)</span>,则几何分布<span class="math inline">\(P_{X,g}(x)=\dfrac{1}{A}(1-\dfrac{1}{A})^{x-1}\)</span>能使<span class="math inline">\(H(X)\)</span>最大</p></li>
+<li><p><strong>推论3</strong>(互信息的非负性)：<br>
+<span class="math display">\[
+I(X;Y)\geq 0
+\]</span> 当且仅当X，Y独立时取等</p></li>
+<li><p><strong>推论4</strong>(条件互信息的非负性)： <span class="math display">\[
+I(X;Y|Z)\geq 0
+\]</span> 当且仅当X，Y与Z条件独立时取等（<span class="math inline">\(X\leftrightarrow Z\leftrightarrow
+Y\)</span>）</p></li>
+</ul></li>
+<li><p>数据处理不等式（DPI）</p>
+<p>若有<span class="math inline">\(X\leftrightarrow Y\leftrightarrow
+Z\)</span>，则有 <span class="math display">\[
+I(X;Y)\geq I(X;Z)
+\]</span> 等式成立当且仅当<span class="math inline">\(X\leftrightarrow
+Z\leftrightarrow Y\)</span>也组成马尔可夫链</p>
+<ul>
+<li>互信息在马尔可夫链中减少</li>
+<li>特例： <span class="math display">\[
+I(X;f(Y))\leq I(X;Y)
+\]</span> 说明处理原始数据会减少我们提取其信息的能力</li>
+</ul></li>
+</ul>
+<h3><span id="33-条件的影响">3.3 条件的影响</span></h3>
+<ul>
+<li><p>conditioning reduces entropy： <span class="math display">\[
+H(X)\geq H(X|Y)
+\]</span> 等式成立当且仅当X，Y独立 <span class="math display">\[
+H(X|Z)\geq H(X|Y,Z)
+\]</span> 等式成立当且仅当X，Y关于Z条件独立</p>
+<ul>
+<li><p>推论5： <span class="math display">\[
+H(X_1,X_2,...,X_n)\leq \sum^n_{i=1}H(X_i)
+\]</span> 等式成立当且仅当<span class="math inline">\(X_1,X_2,...,X_n\)</span>相互独立</p></li>
+<li><p>推论6：<br>
+若存在<span class="math inline">\(Y\)</span>使得<span class="math inline">\(H(Y|X)=0\)</span>,则存在映射<span class="math inline">\(Y=f(X)\)</span><br>
+对于映射<span class="math inline">\(f\)</span>,有 <span class="math display">\[
+H(f(X))\leq H(X)
+\]</span> 等式成立当且仅当<span class="math inline">\(f\)</span>是双射，即有<span class="math inline">\(f^{-1}(f(X))=X\)</span></p></li>
+</ul></li>
+<li><p>concexity and concavity<br>
+<span class="math inline">\(I(X;Y)\)</span>对于给定的<span class="math inline">\(P_{Y|X}\)</span>关于<span class="math inline">\(P_X\)</span>是凹的<br>
+<span class="math inline">\(I(X;Y)\)</span>对于给定的<span class="math inline">\(P_X\)</span>关于<span class="math inline">\(P_{Y|X}\)</span>是凹的</p></li>
+</ul>
+<h3><span id="34-法诺不等式">3.4 法诺不等式</span></h3>
+<ul>
+<li><p>最小化<span class="math inline">\(P_e\)</span> (MAP)<br>
+对于观测<span class="math inline">\(Y=y\in Y(\Omega)\)</span>, <span class="math display">\[
+\hat{X}=arg\ max_{x\in X(\Omega)}P_{X|Y}(x|y)
+\]</span> <span class="math inline">\(\hat{X}\)</span>使得后验概率最大</p></li>
+<li><p>法诺不等式 (<span class="math inline">\(P_e\)</span>的下界)<br>
+对于决策<span class="math inline">\(\hat{X}\)</span>使得<span class="math inline">\(X\leftrightarrow Y \leftrightarrow
+\hat{X}\)</span>,<span class="math inline">\(P_e=P\)</span>满足 <span class="math display">\[
+H(X|Y)\leq H(X|\hat{X})\leq h_2(P_e)+P_elog(|X(\Omega)|-1)
+\]</span></p></li>
+</ul>
+<h3><span id="35-平稳过程的熵率">3.5 平稳过程的熵率</span></h3>
+<ul>
+<li><p>离散时间平稳随机过程的时不变性 <span class="math display">\[
+P(X_{i1}=x_1,X_{i2}=x_2,...,X_{in}=x_n)= \\
+P(X_{i1+l}=x_1,X_{i2+l}=x_2,...,X_{in+l}=x_n)
+\]</span></p></li>
+<li><p>平稳随机过程的熵率。 <span class="math display">\[
+H(X)=lim_{n\rightarrow\infty}H(X_n|X_{n-1},...,X_1)
+\]</span></p></li>
+<li><p>马尔可夫链： <span class="math display">\[
+(X_1,...,X_{n-1})\leftrightarrow X_n \leftrightarrow X_{n+1}
+\]</span> 若为时不变，则有平稳分布 <span class="math display">\[
+  P_{X1}(b)=\sum_{a\in X_1(\Omega)}P_{X1}(a)P_{X_2|X_1}(b|a)
+\]</span></p>
+<ul>
+<li><strong>推论7</strong> (平稳时不变马尔可夫链的熵率) <span class="math display">\[
+H(X)=H(X_2|X_1)
+\]</span></li>
+</ul></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/信息论//" class="article-tag-list-link color4">信息论</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-现代通信原理笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -712,19 +927,19 @@ P_{br}=\dfrac{1}{2}\dfrac{|U_{br}|^2}{Z_0}K
 
 
   
-    <article id="post-信息论笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-信息论笔记1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2024/03/13/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B0/">信息论</a>
+      <a class="article-title" href="/2024/03/13/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B01/">信息论第一章</a>
     </h1>
   
 
         
-        <a href="/2024/03/13/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+        <a href="/2024/03/13/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B01/" class="archive-article-date">
   	<time datetime="2024-03-13T08:40:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-13</time>
 </a>
         
@@ -800,7 +1015,7 @@ H(X)=E[i(x)]=-\sum_{x\in X(\Omega)}P_X(x)logP_X(x)
 <li><p>联合熵：</p>
 <p><span class="math display">\[
 \begin{aligned}
-h(X,Y)&amp;=E[i(X,Y)] \\
+H(X,Y)&amp;=E[i(X,Y)] \\
 &amp;=-\sum_{(x,y)\in X(\Omega)\times
 Y(\Omega)}P_{X,Y}(x,y)logP_{X,Y}(x,y)
 \end{aligned}
