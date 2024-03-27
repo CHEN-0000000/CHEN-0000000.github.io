@@ -15,10 +15,12 @@
 <meta property="og:site_name" content="chen00_blog">
 <meta property="og:description" content="3.0 preview 3.1 总体介绍与分类  图像变换的定义 反变换 一维傅里叶变换 二维变换 二维傅里叶变换  3.2 Fourier Transform and Properties  definition  3.3 其他可分离的变换  离散余弦变换 沃尔什变换（Walsh transform） 哈达玛变换（Hadamard transfor">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/dip_1.jpg">
 <meta property="article:published_time" content="2024-03-27T11:20:25.000Z">
-<meta property="article:modified_time" content="2024-03-27T11:45:08.547Z">
+<meta property="article:modified_time" content="2024-03-27T15:38:53.521Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/dip_1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="chen00_blog" type="application/atom+xml">
   
@@ -183,6 +185,7 @@ transform）</a></li>
 transform）</a></li>
 <li><a href="#霍特林变换hotelling-transform">霍特林变换（Hotelling
 transform）</a></li>
+<li><a href="#协方差矩阵与特征值">协方差矩阵与特征值</a></li>
 </ul></li>
 </ul>
 <!-- tocstop -->
@@ -199,9 +202,12 @@ Y=TX
 <h3><span id="反变换">反变换</span></h3>
 <p><span class="math display">\[
   X=T^{-1}Y
-\]</span> * 线性变换：<span class="math inline">\(rank(T)=N\)</span> *
-酉变换： <span class="math inline">\(T^{-1}=T^{*t}\)</span> * 正交变换：
-<span class="math inline">\(TT^t=TT^{-1}=I\)</span></p>
+\]</span></p>
+<ul>
+<li>线性变换：<span class="math inline">\(rank(T)=N\)</span></li>
+<li>酉变换： <span class="math inline">\(T^{-1}=T^{*t}\)</span></li>
+<li>正交变换： <span class="math inline">\(TT^t=TT^{-1}=I\)</span></li>
+</ul>
 <h3><span id="一维傅里叶变换">一维傅里叶变换</span></h3>
 <p><span class="math display">\[
     F(u)=\sum\limits^{N-1}_{x=0}f(x)e^{-j\dfrac{2\pi}{N}ux}
@@ -211,13 +217,20 @@ Y=TX
 <h3><span id="二维变换">二维变换</span></h3>
 <p><span class="math display">\[
 y_{m,n}=\sum\limits^{M-1}_{i=0}\sum^{N-1}_{j=0}x_{i,j}\Phi(i,j,m,n)
-\]</span> * 分解： <span class="math display">\[
-    \Phi(i,j,m,n)=T_r(i,m)T_c(j,n)
-    \]</span> <span class="math display">\[
-    y_{m,n}=\sum\limits^{M-1}_{i=0}[\sum^{N-1}_{j=0}x_{i,j}T_c(j,n)]T_r(i,m)
-    \]</span> * 对称性： 若<span class="math inline">\(\Phi(i,j,m,n)=T(i,m)T(j,n)\)</span>,则有 <span class="math display">\[
-    Y=TXT
-    \]</span></p>
+\]</span></p>
+<ul>
+<li><p>分解：</p>
+<p><span class="math display">\[
+\Phi(i,j,m,n)=T_r(i,m)T_c(j,n)
+\]</span> <span class="math display">\[
+y_{m,n}=\sum\limits^{M-1}_{i=0}[\sum^{N-1}_{j=0}x_{i,j}T_c(j,n)]T_r(i,m)
+\]</span></p></li>
+<li><p>对称性：</p>
+<p>若<span class="math inline">\(\Phi(i,j,m,n)=T(i,m)T(j,n)\)</span>,则有</p>
+<p><span class="math display">\[
+Y=TXT
+\]</span></p></li>
+</ul>
 <h3><span id="二维傅里叶变换">二维傅里叶变换</span></h3>
 <p><span class="math display">\[
 F(u,v)=\dfrac{1}{N}\sum\limits^{N-1}_{x=0}e^{\dfrac{-j2\pi
@@ -227,10 +240,11 @@ ux}{N}}\sum\limits^{N-1}_{y=0}f(x,y)e^{\dfrac{-j2\pi vy}{N}}
 Properties</span></h2>
 <h3><span id="definition">definition</span></h3>
 <ul>
-<li><p>频谱，幅度谱，功率谱 <span class="math display">\[
+<li><p><strong>频谱，幅度谱，功率谱</strong> <span class="math display">\[
   P(u,v)=|F(u,v)|^2
   \]</span></p></li>
-<li><p>display 解决高频分量模糊的问题 <span class="math display">\[
+<li><p><strong>display</strong><br>
+解决高频分量模糊的问题 <span class="math display">\[
 D_1(u,v) = log(1+|F(u,v)|)
 \]</span> <span class="math display">\[
   D_2(u,v)=
@@ -239,39 +253,40 @@ D_1(u,v) = log(1+|F(u,v)|)
   255 \ \ \ \ \ \ \ \ if|F(u,v)|+100&gt;255
 \end{cases}
 \]</span></p></li>
-<li><p>可分离性 f(x,y) 或 F(u,v)
+<li><p><strong>可分离性</strong><br>
+f(x,y) 或 F(u,v)
 可以通过连续应用一维傅里叶变换或其逆变换分两步获得</p></li>
-<li><p>周期性和共轭对称性</p>
+<li><p><strong>周期性和共轭对称性</strong></p>
 <ul>
-<li><p>周期性 <span class="math display">\[
+<li>周期性 <span class="math display">\[
 F(u,v)=F(u+N,v)=F(u,v+N)=F(u+N,v+N)  
-\]</span></p></li>
-<li><p>共轭对称性 <span class="math display">\[
+\]</span></li>
+<li>共轭对称性 <span class="math display">\[
 F(u,v)=F^*(-u,-v)
 \]</span> <span class="math display">\[
 |F(u,v)|=|F(-u,-v)|
-\]</span>
-直接傅里叶变换后频谱图中间区域是高频，而四个角则是低频分量。进行频谱中心化后可以得到中间低频，四角高频得频谱图。</p></li>
-<li><p>translation
+\]</span></li>
+</ul></li>
+<li><p><strong>translation</strong><br>
 直接傅里叶变换后频谱图中间区域是高频，而四个角则是低频分量。进行频谱中心化后可以得到中间低频，四角高频得频谱图。
 <span class="math display">\[
-f(x,y)(-1)^{x+y}\leftrightarrow F(u-\dfrac{N}{2,v-\dfrac{N}{2}})
-\]</span></p></li>
-<li><p>rotation <span class="math display">\[
-x=rcos(\theta),y=rsin(\theta),u=\omega cos(\phi),v=\omega sin(\phi)
-\]</span> 则有 <span class="math display">\[
-f(r,\theta+\theta_0)\leftrightarrow F(\omega,\phi+\theta_0)
-\]</span></p></li>
-<li><p>缩放 <span class="math display">\[
-f(ax,by)\leftrightarrow \dfrac{1}{|ab|}F(\dfrac{u}{a},\dfrac{v}{b})
-\]</span></p></li>
-<li><p>平均值 <span class="math display">\[
-\tilde{f}(x,y)=\dfrac{1}{N}F(0,0)
-\]</span></p></li>
-<li><p>卷积 <span class="math display">\[
-f_e(x,y)*g_e(x,y)=\dfrac{1}{MN}\sum\limits^{M-1}_{m=0}\sum\limits^{N-1}_{n=0}f_e(m,n)g_e(x-m,y-n)
-\]</span></p></li>
-</ul></li>
+  f(x,y)(-1)^{x+y}\leftrightarrow F(u-\dfrac{N}{2},v-\dfrac{N}{2})
+  \]</span></p></li>
+<li><p><strong>rotation</strong></p>
+<p><span class="math display">\[
+  x=rcos(\theta),y=rsin(\theta),u=\omega cos(\phi),v=\omega sin(\phi)
+  \]</span> 则有 <span class="math display">\[
+  f(r,\theta+\theta_0)\leftrightarrow F(\omega,\phi+\theta_0)
+  \]</span></p></li>
+<li><p><strong>缩放</strong> <span class="math display">\[
+  f(ax,by)\leftrightarrow \dfrac{1}{|ab|}F(\dfrac{u}{a},\dfrac{v}{b})
+  \]</span></p></li>
+<li><p><strong>平均值</strong> <span class="math display">\[
+  \tilde{f}(x,y)=\dfrac{1}{N}F(0,0)
+  \]</span></p></li>
+<li><p><strong>卷积</strong> <span class="math display">\[
+  f_e(x,y)*g_e(x,y)=\dfrac{1}{MN}\sum\limits^{M-1}_{m=0}\sum\limits^{N-1}_{n=0}f_e(m,n)g_e(x-m,y-n)
+  \]</span></p></li>
 </ul>
 <h2><span id="33-其他可分离的变换">3.3 其他可分离的变换</span></h2>
 <h3><span id="离散余弦变换">离散余弦变换</span></h3>
@@ -292,10 +307,52 @@ f_e(x,y)*g_e(x,y)=\dfrac{1}{MN}\sum\limits^{M-1}_{m=0}\sum\limits^{N-1}_{n=0}f_e
 <h3><span id="沃尔什变换walsh-transform">沃尔什变换（Walsh transform）</span></h3>
 <h3><span id="哈达玛变换hadamardtransform">哈达玛变换（Hadamard
 transform）</span></h3>
+<p>二维的哈达玛变换就是对原矩阵左乘一个对应阶的哈达玛矩阵，右边也乘一个，然后除以阶数的平方</p>
+<p>四阶哈达玛矩阵如下 <span class="math display">\[
+\left(
+\begin{matrix}
+1&amp;1&amp;1&amp;1\\
+1&amp;-1&amp;1&amp;-1\\
+1&amp;1&amp;-1&amp;-1\\
+1&amp;-1&amp;-1&amp;1
+\end{matrix}
+\right)
+\]</span></p>
 <h3><span id="哈尔变换haar-transform">哈尔变换（Haar transform）</span></h3>
+<ol type="1">
+<li>使用四阶哈尔矩阵对每一个转置后的行向量向量做哈尔变换</li>
+<li>将得到的结果拼为矩阵再转置</li>
+<li>使用四阶哈尔矩阵对每一个列向量做哈尔变换</li>
+<li>将得到的结果拼为矩阵</li>
+</ol>
+<p><img src="/images/dip_1.jpg"></p>
+<p>四阶哈尔矩阵如下 <span class="math display">\[
+H_4=\frac{1}{2}
+\left(
+\begin{matrix}
+1&amp;1&amp;1&amp;1\\
+1&amp;1&amp;-1&amp;-1\\
+\sqrt{2}&amp;-\sqrt{2}&amp;0&amp;0\\
+0&amp;0&amp;\sqrt{2}&amp;-\sqrt{2}
+\end{matrix}
+\right)
+\]</span></p>
 <h3><span id="倾斜变换slant-transform">倾斜变换（Slant transform）</span></h3>
 <h3><span id="霍特林变换hotellingtransform">霍特林变换（Hotelling
 transform）</span></h3>
+<h3><span id="协方差矩阵与特征值">协方差矩阵与特征值</span></h3>
+<ul>
+<li><p>协方差矩阵： 给定d个随机变量<span class="math inline">\(x_k,k=1,2,...d\)</span>,<span class="math inline">\(x_{ki}\)</span>表示随机变量<span class="math inline">\(x_k\)</span>中的第<span class="math inline">\(i\)</span>个观测样本，n为观测样本数，则随机变量之间的方差为</p>
+<p><span class="math display">\[
+\sigma(x_m,x_k)=\dfrac{1}{n-1}\sum\limits^{n}_{i=1}(x_{mi}-\bar{x}_m)(x_{ki}-\bar{x}_k)
+\]</span></p>
+<p>即可得到图像的协方差矩阵</p></li>
+<li><p>特征值 特征值分解是将一个矩阵分解成下面的形式 <span class="math display">\[
+A=Q\sum Q^{-1}
+\]</span> Q是这个矩阵A的特征向量组成的矩阵，<span class="math inline">\(\sum\)</span>是一个对角阵，每一个对角线上的元素就是一个特征值<br>
+当矩阵是高维的情况下，那么这个矩阵就是高维空间下的一个线性变换，我们通过特征值分解得到的前N个特征向量，那么就对应了这个矩阵最主要的N个变化方向<br>
+特征值表示的是这个特征到底有多重要，而特征向量表示这个特征是什么</p></li>
+</ul>
 
       
 
@@ -420,7 +477,7 @@ transform）</span></h3>
                     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">3.0 preview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">3.1 总体介绍与分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">图像变换的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">反变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">一维傅里叶变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.4.</span> <span class="toc-text">二维变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.5.</span> <span class="toc-text">二维傅里叶变换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">3.2 Fourier Transform and
 Properties</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">definition</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">3.3 其他可分离的变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">离散余弦变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text">沃尔什变换（Walsh transform）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.3.</span> <span class="toc-text">哈达玛变换（Hadamard
 transform）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.4.</span> <span class="toc-text">哈尔变换（Haar transform）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.5.</span> <span class="toc-text">倾斜变换（Slant transform）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.6.</span> <span class="toc-text">霍特林变换（Hotelling
-transform）</span></a></li></ol></li></ol>
+transform）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.7.</span> <span class="toc-text">协方差矩阵与特征值</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
