@@ -16,7 +16,7 @@
 <meta property="og:description" content="2.2 Image Fundaments  Image data presentation Image Types Image Statisic Parmeters Image Dara File Formats  2.3 Sampling and Quantization  Spatial resolution 缩放图片 灰度分辨率 像素的邻域 连接性 D">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-03-27T11:20:25.000Z">
-<meta property="article:modified_time" content="2024-03-27T11:20:07.821Z">
+<meta property="article:modified_time" content="2024-03-27T11:38:14.426Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -179,10 +179,22 @@ Quantization</a>
 <!-- tocstop -->
 <h2><span id="22-image-fundaments">2.2 Image Fundaments</span></h2>
 <h3><span id="image-data-presentation">Image data presentation</span></h3>
-<p>矩阵 ### Image Types 二值图像，灰度图，彩色图 ### Image Statisic
-Parmeters 均值，最小值，方差 ### Image Dara File Formats * Raw data
-file: 无尺寸信息 * Bit-mapped file： * file head * Bit-mapped file *
-Color map * Tagged file format：</p>
+<p>矩阵</p>
+<h3><span id="image-types">Image Types</span></h3>
+<p>二值图像，灰度图，彩色图</p>
+<h3><span id="image-statisic-parmeters">Image Statisic Parmeters</span></h3>
+<p>均值，最小值，方差</p>
+<h3><span id="image-dara-file-formats">Image Dara File Formats</span></h3>
+<ul>
+<li>Raw data file: 无尺寸信息</li>
+<li>Bit-mapped file：
+<ul>
+<li>file head</li>
+<li>Bit-mapped file</li>
+<li>Color map</li>
+</ul></li>
+<li>Tagged file format：</li>
+</ul>
 <h2><span id="23-sampling-and-quantization">2.3 Sampling and Quantization</span></h2>
 <h3><span id="spatial-resolution">Spatial resolution</span></h3>
 <p>The number b of bits required to store a digital image<br>
@@ -203,10 +215,16 @@ b=M*N*k
 <h3><span id="像素的邻域">像素的邻域</span></h3>
 <ul>
 <li>4-neighbors：上下左右</li>
-<li>8-neighbors： 9*9范围内 ### 连接性</li>
+<li>8-neighbors： 9*9范围内</li>
+</ul>
+<h3><span id="连接性">连接性</span></h3>
+<ul>
 <li>4-adjacency：4邻域内有相似灰度值的两个像素</li>
 <li>8-adjacency：8邻域内有相似灰度值的两个像素</li>
-<li>m-adjacency：消除8邻接导致的多路问题 ### Distance Measures</li>
+<li>m-adjacency：消除8邻接导致的多路问题</li>
+</ul>
+<h3><span id="distance-measures">Distance Measures</span></h3>
+<ul>
 <li>Euclidean distance <span class="math display">\[
   D_e(p,q)=[(x-s)^2+(y-t)^2]^{\dfrac{1}{2}}
   \]</span></li>
@@ -330,7 +348,7 @@ b=M*N*k
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">2.2 Image Fundaments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">Image data presentation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">2.3 Sampling and Quantization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">Spatial resolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">缩放图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">灰度分辨率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.4.</span> <span class="toc-text">像素的邻域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">2.5 算术和逻辑运算</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">2.2 Image Fundaments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">Image data presentation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">Image Types</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">Image Statisic Parmeters</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text">Image Dara File Formats</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">2.3 Sampling and Quantization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">Spatial resolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">缩放图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">灰度分辨率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.4.</span> <span class="toc-text">像素的邻域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.5.</span> <span class="toc-text">连接性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.6.</span> <span class="toc-text">Distance Measures</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">2.5 算术和逻辑运算</span></a></li></ol>
                     </div>
                 </span>
             </div>
