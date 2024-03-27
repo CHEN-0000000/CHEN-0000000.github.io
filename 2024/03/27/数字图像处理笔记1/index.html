@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2024 | chen00_blog</title>
+  <title>数字图像处理第二章 | chen00_blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="chen00_blog">
-<meta property="og:url" content="http://example.com/archives/2024/index.html">
+  <meta name="description" content="2.2 Image Fundaments  Image data presentation Image Types Image Statisic Parmeters Image Dara File Formats  2.3 Sampling and Quantization  Spatial resolution 缩放图片 灰度分辨率 像素的邻域 连接性 D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字图像处理第二章">
+<meta property="og:url" content="http://example.com/2024/03/27/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B01/index.html">
 <meta property="og:site_name" content="chen00_blog">
+<meta property="og:description" content="2.2 Image Fundaments  Image data presentation Image Types Image Statisic Parmeters Image Dara File Formats  2.3 Sampling and Quantization  Spatial resolution 缩放图片 灰度分辨率 像素的邻域 连接性 D">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-03-27T11:20:25.000Z">
+<meta property="article:modified_time" content="2024-03-27T11:20:07.821Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -130,37 +134,99 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数字图像处理笔记1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/03/27/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B01/" class="archive-article-date">
-  	<time datetime="2024-03-27T11:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/27/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B01/">数字图像处理第二章</a>
+    <h1 class="article-title" itemprop="name">
+      数字图像处理第二章
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2024/03/27/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B01/" class="archive-article-date">
+  	<time datetime="2024-03-27T11:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<ul>
+<li><a href="#22-image-fundaments">2.2 Image Fundaments</a>
+<ul>
+<li><a href="#image-data-presentation">Image data presentation</a></li>
+<li><a href="#image-types">Image Types</a></li>
+<li><a href="#image-statisic-parmeters">Image Statisic
+Parmeters</a></li>
+<li><a href="#image-dara-file-formats">Image Dara File Formats</a></li>
+</ul></li>
+<li><a href="#23-sampling-and-quantization">2.3 Sampling and
+Quantization</a>
+<ul>
+<li><a href="#spatial-resolution">Spatial resolution</a></li>
+<li><a href="#缩放图片">缩放图片</a></li>
+<li><a href="#灰度分辨率">灰度分辨率</a></li>
+<li><a href="#像素的邻域">像素的邻域</a></li>
+<li><a href="#连接性">连接性</a></li>
+<li><a href="#distance-measures">Distance Measures</a></li>
+</ul></li>
+<li><a href="#25-算术和逻辑运算">2.5 算术和逻辑运算</a></li>
+</ul>
+<!-- tocstop -->
+<h2><span id="22-image-fundaments">2.2 Image Fundaments</span></h2>
+<h3><span id="image-data-presentation">Image data presentation</span></h3>
+<p>矩阵 ### Image Types 二值图像，灰度图，彩色图 ### Image Statisic
+Parmeters 均值，最小值，方差 ### Image Dara File Formats * Raw data
+file: 无尺寸信息 * Bit-mapped file： * file head * Bit-mapped file *
+Color map * Tagged file format：</p>
+<h2><span id="23-sampling-and-quantization">2.3 Sampling and Quantization</span></h2>
+<h3><span id="spatial-resolution">Spatial resolution</span></h3>
+<p>The number b of bits required to store a digital image<br>
+<span class="math display">\[
+G=2^k,M=2^m,N=2^n
+\]</span> <span class="math display">\[
+b=M*N*k
+\]</span></p>
+<h3><span id="缩放图片">缩放图片</span></h3>
+<ul>
+<li>zooming
+<ul>
+<li>新坐标+灰度等级</li>
+<li>最近邻插值，双线性插值</li>
+</ul></li>
+</ul>
+<h3><span id="灰度分辨率">灰度分辨率</span></h3>
+<h3><span id="像素的邻域">像素的邻域</span></h3>
+<ul>
+<li>4-neighbors：上下左右</li>
+<li>8-neighbors： 9*9范围内 ### 连接性</li>
+<li>4-adjacency：4邻域内有相似灰度值的两个像素</li>
+<li>8-adjacency：8邻域内有相似灰度值的两个像素</li>
+<li>m-adjacency：消除8邻接导致的多路问题 ### Distance Measures</li>
+<li>Euclidean distance <span class="math display">\[
+  D_e(p,q)=[(x-s)^2+(y-t)^2]^{\dfrac{1}{2}}
+  \]</span></li>
+<li>city-block distances <span class="math display">\[
+  D_4(p,q)=|x-s|+|y-t|
+  \]</span></li>
+<li>chessboard distances <span class="math display">\[
+  D_8(p,q)=max(|x-s|,|y-t|)
+  \]</span></li>
+</ul>
+<h2><span id="25-算术和逻辑运算">2.5 算术和逻辑运算</span></h2>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -173,207 +239,117 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/03/27/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B01/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/03/27/%E6%95%B0%E6%8D%AE%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B02/" class="archive-article-date">
-  	<time datetime="2024-03-27T11:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2024/03/27/%E6%95%B0%E6%8D%AE%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B02/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数字图像处理第三章</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/27/%E6%95%B0%E6%8D%AE%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B02/">数字图像处理第三章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数字图像处理//" class="article-tag-list-link color2">数字图像处理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">2.2 Image Fundaments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">Image data presentation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">2.3 Sampling and Quantization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">Spatial resolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">缩放图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">灰度分辨率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.4.</span> <span class="toc-text">像素的邻域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">2.5 算术和逻辑运算</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/03/19/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B02/" class="archive-article-date">
-  	<time datetime="2024-03-19T13:21:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/19/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B02/">信息论第二章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/信息论//" class="article-tag-list-link color4">信息论</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/03/17/%E7%8E%B0%E4%BB%A3%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2024-03-17T14:10:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-17</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/17/%E7%8E%B0%E4%BB%A3%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/">现代通信原理</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/现代通信原理//" class="article-tag-list-link color2">现代通信原理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/03/17/%E5%BE%AE%E6%B3%A2%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2024-03-17T07:58:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/17/%E5%BE%AE%E6%B3%A2%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/">微波技术基础</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微波技术基础//" class="article-tag-list-link color2">微波技术基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/03/13/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B01/" class="archive-article-date">
-  	<time datetime="2024-03-13T08:40:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/13/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B01/">信息论第一章</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/信息论//" class="article-tag-list-link color4">信息论</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -396,8 +372,8 @@
 	var yiliaConfig = {
 		mathjax: [object Object],
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
