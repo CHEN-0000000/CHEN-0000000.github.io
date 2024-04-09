@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>数字图像处理第二章 | chen00_blog</title>
+  <title>信息论第四章 | chen00_blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2.2 Image Fundaments  Image data presentation Image Types Image Statisic Parmeters Image Dara File Formats  2.3 Sampling and Quantization  Spatial resolution 缩放图片 灰度分辨率 像素的邻域 连接性 D">
+  <meta name="description" content="4 Source Representation:Rate Distortion Characterization  4.1 问题表述 4.2 Shannon’s Fundamental Theorem for Source Coding 4.3 Proof of the Converse Part 4.4 Proof of the Achievability Part">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数字图像处理第二章">
-<meta property="og:url" content="http://example.com/2024/03/27/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B01/index.html">
+<meta property="og:title" content="信息论第四章">
+<meta property="og:url" content="http://example.com/2024/04/08/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B03/index.html">
 <meta property="og:site_name" content="chen00_blog">
-<meta property="og:description" content="2.2 Image Fundaments  Image data presentation Image Types Image Statisic Parmeters Image Dara File Formats  2.3 Sampling and Quantization  Spatial resolution 缩放图片 灰度分辨率 像素的邻域 连接性 D">
+<meta property="og:description" content="4 Source Representation:Rate Distortion Characterization  4.1 问题表述 4.2 Shannon’s Fundamental Theorem for Source Coding 4.3 Proof of the Converse Part 4.4 Proof of the Achievability Part">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-03-27T11:20:25.000Z">
-<meta property="article:modified_time" content="2024-03-27T11:45:43.004Z">
+<meta property="article:published_time" content="2024-04-08T13:21:25.000Z">
+<meta property="article:modified_time" content="2024-04-09T09:02:29.499Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -134,20 +134,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-数字图像处理笔记1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-信息论笔记3" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      数字图像处理第二章
+      信息论第四章
     </h1>
   
 
         
-        <a href="/2024/03/27/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B01/" class="archive-article-date">
-  	<time datetime="2024-03-27T11:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-27</time>
+        <a href="/2024/04/08/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B03/" class="archive-article-date">
+  	<time datetime="2024-04-08T13:21:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-08</time>
 </a>
         
       </header>
@@ -156,86 +156,124 @@
       
         <!-- toc -->
 <ul>
-<li><a href="#22-image-fundaments">2.2 Image Fundaments</a>
+<li><a href="#4-source-representationrate-distortion-characterization">4
+Source Representation:Rate Distortion Characterization</a>
 <ul>
-<li><a href="#image-data-presentation">Image data presentation</a></li>
-<li><a href="#image-types">Image Types</a></li>
-<li><a href="#image-statisic-parmeters">Image Statisic
-Parmeters</a></li>
-<li><a href="#image-dara-file-formats">Image Dara File Formats</a></li>
+<li><a href="#41-问题表述">4.1 问题表述</a></li>
+<li><a href="#42-shannons-fundamental-theorem-for-source-coding">4.2
+Shannon’s Fundamental Theorem for Source Coding</a></li>
+<li><a href="#43-proof-of-the-converse-part">4.3 Proof of the Converse
+Part</a></li>
+<li><a href="#44-proof-of-the-achievability-part">4.4 Proof of the
+Achievability Part</a></li>
 </ul></li>
-<li><a href="#23-sampling-and-quantization">2.3 Sampling and
-Quantization</a>
-<ul>
-<li><a href="#spatial-resolution">Spatial resolution</a></li>
-<li><a href="#缩放图片">缩放图片</a></li>
-<li><a href="#灰度分辨率">灰度分辨率</a></li>
-<li><a href="#像素的邻域">像素的邻域</a></li>
-<li><a href="#连接性">连接性</a></li>
-<li><a href="#distance-measures">Distance Measures</a></li>
-</ul></li>
-<li><a href="#25-算术和逻辑运算">2.5 算术和逻辑运算</a></li>
 </ul>
 <!-- tocstop -->
-<h2><span id="22-image-fundaments">2.2 Image Fundaments</span></h2>
-<h3><span id="image-data-presentation">Image data presentation</span></h3>
-<p>矩阵</p>
-<h3><span id="image-types">Image Types</span></h3>
-<p>二值图像，灰度图，彩色图</p>
-<h3><span id="image-statisic-parmeters">Image Statisic Parmeters</span></h3>
-<p>均值，最小值，方差</p>
-<h3><span id="image-dara-file-formats">Image Dara File Formats</span></h3>
+<h2><span id="4-sourcerepresentationrate-distortion-characterization">4 Source
+Representation:Rate Distortion Characterization</span></h2>
+<p>信源发出的信息：alphabet <span class="math inline">\(S={a_1,a_2,...,2_{|S|}}\)</span><br>
+用二进制字符串代表信息，字符串的长度至少应该是<span class="math inline">\(log_2|S|\)</span></p>
+<p><strong>表示源消息的资源量（例如，二进制字符串的长度）和再现消息的质量（例如，模糊程度）之间存在权衡</strong></p>
+<h3><span id="41-问题表述">4.1 问题表述</span></h3>
 <ul>
-<li>Raw data file: 无尺寸信息</li>
-<li>Bit-mapped file：
-<ul>
-<li>file head</li>
-<li>Bit-mapped file</li>
-<li>Color map</li>
-</ul></li>
-<li>Tagged file format：</li>
+<li><p>信息源：生成随机过程 S1、S2...的概率设备</p></li>
+<li><p>消息：规定长度 n 的随机过程的一段</p>
+<p><span class="math display">\[
+𝑆 = [𝑆1, 𝑆2, . . . , 𝑆𝑛].
+\]</span></p></li>
+<li><p>信息源的表示<span class="math inline">\(\rightarrow\)</span><strong>映射</strong></p>
+<p><span class="math display">\[
+f_n^{(s)}:S^n\rightarrow\{1,2,...,M_n\}
+\]</span></p></li>
+<li><p>信息的reproduction</p>
+<p><span class="math display">\[
+g_n^{(s)}:\{1,2,...,M_n\}\rightarrow \hat{S}^n
+\]</span></p></li>
 </ul>
-<h2><span id="23-sampling-and-quantization">2.3 Sampling and Quantization</span></h2>
-<h3><span id="spatial-resolution">Spatial resolution</span></h3>
-<p>The number b of bits required to store a digital image<br>
-<span class="math display">\[
-G=2^k,M=2^m,N=2^n
-\]</span> <span class="math display">\[
-b=M*N*k
+<p><strong>信息的Markov chain</strong> <span class="math display">\[
+S \leftrightarrow W=f_n^{(s)} \leftrightarrow \hat{S}=g_n^{(s)}
 \]</span></p>
-<h3><span id="缩放图片">缩放图片</span></h3>
 <ul>
-<li>zooming
+<li><p><strong>rate of a source encoder/decoder pair</strong></p>
+<p><span class="math display">\[
+R=\dfrac{\lceil log_2M_n\rceil}{n}  bits/source symbol
+\]</span></p></li>
+<li><p><strong>bounded distortion measures</strong></p>
+<p><span class="math display">\[
+d_max :=max_{(s,\hat{s})\in S\times \hat{S}}d(s,\hat{s})
+\]</span></p></li>
+<li><p>distortion between source encoder/decoder pair</p>
+<p><span class="math display">\[
+E[d(S,\hat{S})]=\dfrac{1}{n}\sum^{n}_{i=1}d(s_i,\hat{s_i})
+\]</span></p></li>
+<li><p><strong>A rate-distortion pair (𝑅,𝐷)</strong></p>
+<p><span class="math display">\[
+R=\dfrac{\lceil log_2M_n\rceil}{n}  bits/source symbol
+\]</span> <span class="math display">\[
+lim_{n\rightarrow \infty}E[d(S,\hat{S})] \leq D
+\]</span></p>
+<p>由上式可以得到<strong>rate-distorion region</strong></p></li>
+<li><p>R(D)与D(R)</p>
 <ul>
-<li>新坐标+灰度等级</li>
-<li>最近邻插值，双线性插值</li>
+<li>发送速率的下确界： R(D)</li>
+<li>失真的下确界： D(R)</li>
+</ul>
+<p><img src></p></li>
+</ul>
+<h3><span id="42-shannonsfundamental-theorem-for-source-coding">4.2 Shannon’s
+Fundamental Theorem for Source Coding</span></h3>
+<ul>
+<li><p><strong>Theorem 15</strong><br>
+率失真函数由以下优化问题给出 <span class="math display">\[
+R(D)=min_{P_{\hat{S}|S}}I(S;\hat{S})
+\]</span> <span class="math display">\[
+s.t. E[d(S,\hat{S})]\leq D
+\]</span> 优化的目标是使<span class="math inline">\(I(S;\hat{S})\)</span>最小<br>
+优化的遍历对象是<span class="math inline">\(P_{\hat{S}|S}\)</span><br>
+优化的约束条件是<span class="math inline">\(E[d(S,\hat{S})]\leq
+D\)</span></p></li>
+<li><p>Corollary 9</p>
+<p>R(D)是D上的非增凸函数，若<span class="math inline">\(R(D_{min})&gt;0\)</span>,则R(D)在<span class="math inline">\(D\in
+[D_{min},D_{max}]\)</span>中严格递减，同时Theorem
+15中约束条件的不等号可以换成等号</p></li>
+<li><p>example<br>
+<strong>ernoulli source with parameter 𝛿 ≤ 1/2 and with Hamming
+distortion</strong></p>
+<p><span class="math display">\[
+R(D)=h_2(\delta)-h_2(D),if 0\leq D\leq \delta,and 0 otherwise
+\]</span></p></li>
+</ul>
+<h3><span id="43-proof-of-the-converse-part">4.3 Proof of the Converse Part</span></h3>
+<p>对于任何源编码器/解码器对，对于任何 <span class="math inline">\(R
+&lt; R(D)\)</span>，都不可能实现不大于<span class="math inline">\(D\)</span> 的预期失真</p>
+<ul>
+<li>证明过程的大概思路：<br>
+假设预期失真满足 <span class="math inline">\(E[d(S, \hat{S})] ≤
+D\)</span>,最后一通操作得到<span class="math inline">\(R\geq
+R(D)\)</span></li>
+</ul>
+<h3><span id="44-proof-of-the-achievabilitypart">4.4 Proof of the Achievability
+Part</span></h3>
+<p>给定 <span class="math inline">\(D\)</span>，对于任何速率<span class="math inline">\(R &gt;
+R(D)\)</span>，都存在一系列源编码器/解码器对,索引为 n = 1,
+2,...,使得<span class="math inline">\((R,
+D)\)</span>是可实现的率失真对</p>
+<ul>
+<li>部分概念
+<ul>
+<li><p>W (=<span class="math inline">\(f_n^{(s)}(S)\)</span>)：<br>
+从<span class="math inline">\(\{1,2,...,M_n\}\)</span>中选择的,每个<span class="math inline">\(W=\omega\)</span>用于重现消息向量，即<span class="math inline">\(g_n^{(s)}(\omega)\)</span></p></li>
+<li><p>码本：<br>
+produced message vectors的集合<br>
+可以用<span class="math inline">\(C(\omega)\)</span>表示<span class="math inline">\(g_n^{(s)}(\omega)\)</span>, 用<span class="math inline">\(C_i(\omega)\)</span>表示<span class="math inline">\(C(\omega)\)</span>中的第i个元素<br>
+可以理解为所有的无论是一开始源产生的元素（<span class="math inline">\(S\)</span>）还是译码器译出的元素（<span class="math inline">\(\hat{S}\)</span>）都在码本中选择</p></li>
+<li><p>期望失真：</p>
+<p><span class="math display">\[
+E[d(S,\hat{S})]=\sum_{s\in \delta^n}P_{S}(s)d(s,C(f_n^{s}(s)))
+\]</span> 其中<span class="math inline">\(C(f_n^{s}(s))\)</span>表示编码译码后得到的结果</p></li>
 </ul></li>
 </ul>
-<h3><span id="灰度分辨率">灰度分辨率</span></h3>
-<h3><span id="像素的邻域">像素的邻域</span></h3>
-<ul>
-<li>4-neighbors：上下左右</li>
-<li>8-neighbors： 9*9范围内</li>
-</ul>
-<h3><span id="连接性">连接性</span></h3>
-<ul>
-<li>4-adjacency：4邻域内有相似灰度值的两个像素</li>
-<li>8-adjacency：8邻域内有相似灰度值的两个像素</li>
-<li>m-adjacency：消除8邻接导致的多路问题</li>
-</ul>
-<h3><span id="distance-measures">Distance Measures</span></h3>
-<ul>
-<li>Euclidean distance <span class="math display">\[
-  D_e(p,q)=[(x-s)^2+(y-t)^2]^{\dfrac{1}{2}}
-  \]</span></li>
-<li>city-block distances <span class="math display">\[
-  D_4(p,q)=|x-s|+|y-t|
-  \]</span></li>
-<li>chessboard distances <span class="math display">\[
-  D_8(p,q)=max(|x-s|,|y-t|)
-  \]</span></li>
-</ul>
-<h2><span id="25-算术和逻辑运算">2.5 算术和逻辑运算</span></h2>
+<h4><span id="441-generation-of-codebook-c">4.4.1 Generation of Codebook C</span></h4>
 
       
 
@@ -250,7 +288,7 @@ b=M*N*k
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/数字图像处理//" class="article-tag-list-link color2">数字图像处理</a>
+        			<a href="/categories/信息论//" class="article-tag-list-link color4">信息论</a>
         		</li>
       		
 		</ul>
@@ -305,7 +343,7 @@ b=M*N*k
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/03/27/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B01/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/04/08/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B03/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -319,18 +357,18 @@ b=M*N*k
   
 <nav id="article-nav">
   
-    <a href="/2024/03/27/%E6%95%B0%E6%8D%AE%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B02/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2024/04/09/MUSIC%E7%9B%B8%E5%85%B3%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          数字图像处理第三章
+          MUSIC相关笔记
         
       </div>
     </a>
   
   
-    <a href="/2024/03/19/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B02/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">信息论第二章</div>
+    <a href="/2024/03/27/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%BA%8C%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数字图像处理第二章</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -357,7 +395,10 @@ b=M*N*k
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">2.2 Image Fundaments</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">Image data presentation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">Image Types</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">Image Statisic Parmeters</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text">Image Dara File Formats</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">2.3 Sampling and Quantization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">Spatial resolution</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">缩放图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">灰度分辨率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.4.</span> <span class="toc-text">像素的邻域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.5.</span> <span class="toc-text">连接性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.6.</span> <span class="toc-text">Distance Measures</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">2.5 算术和逻辑运算</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">4 Source
+Representation:Rate Distortion Characterization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.1.</span> <span class="toc-text">4.1 问题表述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.2.</span> <span class="toc-text">4.2 Shannon’s
+Fundamental Theorem for Source Coding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.3.</span> <span class="toc-text">4.3 Proof of the Converse Part</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.4.</span> <span class="toc-text">4.4 Proof of the Achievability
+Part</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.4.1 Generation of Codebook C</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
