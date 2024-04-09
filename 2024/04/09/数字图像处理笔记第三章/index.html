@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Category: 数字图像处理 | chen00_blog</title>
+  <title>数字图像处理第三章 | chen00_blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="chen00_blog">
-<meta property="og:url" content="http://example.com/categories/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/index.html">
+  <meta name="description" content="3.0 preview 3.1 总体介绍与分类  图像变换的定义 反变换 一维傅里叶变换 二维变换 二维傅里叶变换  3.2 Fourier Transform and Properties  definition  3.3 其他可分离的变换  离散余弦变换 沃尔什变换（Walsh transform） 哈达玛变换（Hadamard transfor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字图像处理第三章">
+<meta property="og:url" content="http://example.com/2024/04/09/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%B8%89%E7%AB%A0/index.html">
 <meta property="og:site_name" content="chen00_blog">
+<meta property="og:description" content="3.0 preview 3.1 总体介绍与分类  图像变换的定义 反变换 一维傅里叶变换 二维变换 二维傅里叶变换  3.2 Fourier Transform and Properties  definition  3.3 其他可分离的变换  离散余弦变换 沃尔什变换（Walsh transform） 哈达玛变换（Hadamard transfor">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/dip_1.jpg">
+<meta property="article:published_time" content="2024-04-09T11:20:25.000Z">
+<meta property="article:modified_time" content="2024-04-09T09:02:12.827Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/dip_1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="chen00_blog" type="application/atom+xml">
   
@@ -130,37 +136,232 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-数字图像处理笔记第三章" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      数字图像处理第三章
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/04/09/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%B8%89%E7%AB%A0/" class="archive-article-date">
+
+        
+        <a href="/2024/04/09/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%B8%89%E7%AB%A0/" class="archive-article-date">
   	<time datetime="2024-04-09T11:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-09</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/04/09/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%B8%89%E7%AB%A0/">数字图像处理第三章</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<ul>
+<li><a href="#30-preview">3.0 preview</a></li>
+<li><a href="#31-总体介绍与分类">3.1 总体介绍与分类</a>
+<ul>
+<li><a href="#图像变换的定义">图像变换的定义</a></li>
+<li><a href="#反变换">反变换</a></li>
+<li><a href="#一维傅里叶变换">一维傅里叶变换</a></li>
+<li><a href="#二维变换">二维变换</a></li>
+<li><a href="#二维傅里叶变换">二维傅里叶变换</a></li>
+</ul></li>
+<li><a href="#32-fourier-transform-and-properties">3.2 Fourier Transform
+and Properties</a>
+<ul>
+<li><a href="#definition">definition</a></li>
+</ul></li>
+<li><a href="#33-其他可分离的变换">3.3 其他可分离的变换</a>
+<ul>
+<li><a href="#离散余弦变换">离散余弦变换</a></li>
+<li><a href="#沃尔什变换walsh-transform">沃尔什变换（Walsh
+transform）</a></li>
+<li><a href="#哈达玛变换hadamard-transform">哈达玛变换（Hadamard
+transform）</a></li>
+<li><a href="#哈尔变换haar-transform">哈尔变换（Haar
+transform）</a></li>
+<li><a href="#倾斜变换slant-transform">倾斜变换（Slant
+transform）</a></li>
+<li><a href="#霍特林变换hotelling-transform">霍特林变换（Hotelling
+transform）</a></li>
+<li><a href="#协方差矩阵与特征值">协方差矩阵与特征值</a></li>
+</ul></li>
+</ul>
+<!-- tocstop -->
+<h2><span id="30-preview">3.0 preview</span></h2>
+<p>DFT的一些回顾</p>
+<h2><span id="31-总体介绍与分类">3.1 总体介绍与分类</span></h2>
+<h3><span id="图像变换的定义">图像变换的定义</span></h3>
+<p><span class="math display">\[
+y_i=\sum\limits^{N-1}_{j=0}t_{i,j}x_j
+\]</span></p>
+<p><span class="math display">\[
+Y=TX
+\]</span></p>
+<h3><span id="反变换">反变换</span></h3>
+<p><span class="math display">\[
+  X=T^{-1}Y
+\]</span></p>
+<ul>
+<li>线性变换：<span class="math inline">\(rank(T)=N\)</span></li>
+<li>酉变换： <span class="math inline">\(T^{-1}=T^{*t}\)</span></li>
+<li>正交变换： <span class="math inline">\(TT^t=TT^{-1}=I\)</span></li>
+</ul>
+<h3><span id="一维傅里叶变换">一维傅里叶变换</span></h3>
+<p><span class="math display">\[
+    F(u)=\sum\limits^{N-1}_{x=0}f(x)e^{-j\dfrac{2\pi}{N}ux}
+\]</span> <span class="math display">\[
+    F=Tf，T^{-1}=T^{*t}
+\]</span></p>
+<h3><span id="二维变换">二维变换</span></h3>
+<p><span class="math display">\[
+y_{m,n}=\sum\limits^{M-1}_{i=0}\sum^{N-1}_{j=0}x_{i,j}\Phi(i,j,m,n)
+\]</span></p>
+<ul>
+<li><p>分解：</p>
+<p><span class="math display">\[
+\Phi(i,j,m,n)=T_r(i,m)T_c(j,n)
+\]</span> <span class="math display">\[
+y_{m,n}=\sum\limits^{M-1}_{i=0}[\sum^{N-1}_{j=0}x_{i,j}T_c(j,n)]T_r(i,m)
+\]</span></p></li>
+<li><p>对称性：</p>
+<p>若<span class="math inline">\(\Phi(i,j,m,n)=T(i,m)T(j,n)\)</span>,则有</p>
+<p><span class="math display">\[
+Y=TXT
+\]</span></p></li>
+</ul>
+<h3><span id="二维傅里叶变换">二维傅里叶变换</span></h3>
+<p><span class="math display">\[
+F(u,v)=\dfrac{1}{N}\sum\limits^{N-1}_{x=0}e^{\dfrac{-j2\pi
+ux}{N}}\sum\limits^{N-1}_{y=0}f(x,y)e^{\dfrac{-j2\pi vy}{N}}
+\]</span></p>
+<h2><span id="32-fourier-transform-andproperties">3.2 Fourier Transform and
+Properties</span></h2>
+<h3><span id="definition">definition</span></h3>
+<ul>
+<li><p><strong>频谱，幅度谱，功率谱</strong> <span class="math display">\[
+  P(u,v)=|F(u,v)|^2
+  \]</span></p></li>
+<li><p><strong>display</strong><br>
+解决高频分量模糊的问题 <span class="math display">\[
+D_1(u,v) = log(1+|F(u,v)|)
+\]</span> <span class="math display">\[
+  D_2(u,v)=
+\begin{cases}
+  |F(u,v)|+100\\
+  255 \ \ \ \ \ \ \ \ if|F(u,v)|+100&gt;255
+\end{cases}
+\]</span></p></li>
+<li><p><strong>可分离性</strong><br>
+f(x,y) 或 F(u,v)
+可以通过连续应用一维傅里叶变换或其逆变换分两步获得</p></li>
+<li><p><strong>周期性和共轭对称性</strong></p>
+<ul>
+<li>周期性 <span class="math display">\[
+F(u,v)=F(u+N,v)=F(u,v+N)=F(u+N,v+N)  
+\]</span></li>
+<li>共轭对称性 <span class="math display">\[
+F(u,v)=F^*(-u,-v)
+\]</span> <span class="math display">\[
+|F(u,v)|=|F(-u,-v)|
+\]</span></li>
+</ul></li>
+<li><p><strong>translation</strong><br>
+直接傅里叶变换后频谱图中间区域是高频，而四个角则是低频分量。进行频谱中心化后可以得到中间低频，四角高频得频谱图。
+<span class="math display">\[
+  f(x,y)(-1)^{x+y}\leftrightarrow F(u-\dfrac{N}{2},v-\dfrac{N}{2})
+  \]</span></p></li>
+<li><p><strong>rotation</strong></p>
+<p><span class="math display">\[
+  x=rcos(\theta),y=rsin(\theta),u=\omega cos(\phi),v=\omega sin(\phi)
+  \]</span> 则有 <span class="math display">\[
+  f(r,\theta+\theta_0)\leftrightarrow F(\omega,\phi+\theta_0)
+  \]</span></p></li>
+<li><p><strong>缩放</strong> <span class="math display">\[
+  f(ax,by)\leftrightarrow \dfrac{1}{|ab|}F(\dfrac{u}{a},\dfrac{v}{b})
+  \]</span></p></li>
+<li><p><strong>平均值</strong> <span class="math display">\[
+  \tilde{f}(x,y)=\dfrac{1}{N}F(0,0)
+  \]</span></p></li>
+<li><p><strong>卷积</strong> <span class="math display">\[
+  f_e(x,y)*g_e(x,y)=\dfrac{1}{MN}\sum\limits^{M-1}_{m=0}\sum\limits^{N-1}_{n=0}f_e(m,n)g_e(x-m,y-n)
+  \]</span></p></li>
+</ul>
+<h2><span id="33-其他可分离的变换">3.3 其他可分离的变换</span></h2>
+<h3><span id="离散余弦变换">离散余弦变换</span></h3>
+<ul>
+<li>一维 <span class="math display">\[
+  C(u)=a(u)\sum\limits^{N-1}_{x=0}f(x)cos[\dfrac{(2x+1)u\pi}{2N}]
+  \]</span> <span class="math display">\[
+  a(u)=
+  \begin{cases}
+      \sqrt{1/N}\ \ when u=0\\
+      \sqrt{2/N}\ \ when u=1,2,...,N-1
+  \end{cases}
+  \]</span></li>
+<li>二维 <span class="math display">\[
+  C(u,v)=a(v)a(u)\sum\limits^{N-1}_{x=0}\sum\limits^{N-1}_{y=0}f(x,y)cos[\dfrac{(2x+1)u\pi}{2N}]cos[\dfrac{(2y+1)v\pi}{2N}]
+  \]</span></li>
+</ul>
+<h3><span id="沃尔什变换walsh-transform">沃尔什变换（Walsh transform）</span></h3>
+<h3><span id="哈达玛变换hadamardtransform">哈达玛变换（Hadamard
+transform）</span></h3>
+<p>二维的哈达玛变换就是对原矩阵左乘一个对应阶的哈达玛矩阵，右边也乘一个，然后除以阶数的平方</p>
+<p>四阶哈达玛矩阵如下 <span class="math display">\[
+\left(
+\begin{matrix}
+1&amp;1&amp;1&amp;1\\
+1&amp;-1&amp;1&amp;-1\\
+1&amp;1&amp;-1&amp;-1\\
+1&amp;-1&amp;-1&amp;1
+\end{matrix}
+\right)
+\]</span></p>
+<h3><span id="哈尔变换haar-transform">哈尔变换（Haar transform）</span></h3>
+<ol type="1">
+<li>使用四阶哈尔矩阵对每一个转置后的行向量向量做哈尔变换</li>
+<li>将得到的结果拼为矩阵再转置</li>
+<li>使用四阶哈尔矩阵对每一个列向量做哈尔变换</li>
+<li>将得到的结果拼为矩阵</li>
+</ol>
+<p><img src="/images/dip_1.jpg"></p>
+<p>四阶哈尔矩阵如下 <span class="math display">\[
+H_4=\frac{1}{2}
+\left(
+\begin{matrix}
+1&amp;1&amp;1&amp;1\\
+1&amp;1&amp;-1&amp;-1\\
+\sqrt{2}&amp;-\sqrt{2}&amp;0&amp;0\\
+0&amp;0&amp;\sqrt{2}&amp;-\sqrt{2}
+\end{matrix}
+\right)
+\]</span></p>
+<h3><span id="倾斜变换slant-transform">倾斜变换（Slant transform）</span></h3>
+<h3><span id="霍特林变换hotellingtransform">霍特林变换（Hotelling
+transform）</span></h3>
+<h3><span id="协方差矩阵与特征值">协方差矩阵与特征值</span></h3>
+<ul>
+<li><p>协方差矩阵： 给定d个随机变量<span class="math inline">\(x_k,k=1,2,...d\)</span>,<span class="math inline">\(x_{ki}\)</span>表示随机变量<span class="math inline">\(x_k\)</span>中的第<span class="math inline">\(i\)</span>个观测样本，n为观测样本数，则随机变量之间的方差为</p>
+<p><span class="math display">\[
+\sigma(x_m,x_k)=\dfrac{1}{n-1}\sum\limits^{n}_{i=1}(x_{mi}-\bar{x}_m)(x_{ki}-\bar{x}_k)
+\]</span></p>
+<p>即可得到图像的协方差矩阵</p></li>
+<li><p>特征值 特征值分解是将一个矩阵分解成下面的形式 <span class="math display">\[
+A=Q\sum Q^{-1}
+\]</span> Q是这个矩阵A的特征向量组成的矩阵，<span class="math inline">\(\sum\)</span>是一个对角阵，每一个对角线上的元素就是一个特征值<br>
+当矩阵是高维的情况下，那么这个矩阵就是高维空间下的一个线性变换，我们通过特征值分解得到的前N个特征向量，那么就对应了这个矩阵最主要的N个变化方向<br>
+特征值表示的是这个特征到底有多重要，而特征向量表示这个特征是什么</p></li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -173,55 +374,129 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/04/09/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%B8%89%E7%AB%A0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/03/27/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%BA%8C%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2024-03-27T11:20:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-27</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2024/04/09/%E4%BF%A1%E6%81%AF%E8%AE%BA%E7%AC%94%E8%AE%B04/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          信息论第五章
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/04/09/%E5%BE%AE%E6%B3%A2%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%B8%89%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">微波技术基础第三章</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/03/27/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%AC%94%E8%AE%B0%E7%AC%AC%E4%BA%8C%E7%AB%A0/">数字图像处理第二章</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数字图像处理//" class="article-tag-list-link color2">数字图像处理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">3.0 preview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">3.1 总体介绍与分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">图像变换的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text">反变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.3.</span> <span class="toc-text">一维傅里叶变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.4.</span> <span class="toc-text">二维变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.5.</span> <span class="toc-text">二维傅里叶变换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">3.2 Fourier Transform and
+Properties</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">definition</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">3.3 其他可分离的变换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.1.</span> <span class="toc-text">离散余弦变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text">沃尔什变换（Walsh transform）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.3.</span> <span class="toc-text">哈达玛变换（Hadamard
+transform）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.4.</span> <span class="toc-text">哈尔变换（Haar transform）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.5.</span> <span class="toc-text">倾斜变换（Slant transform）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.6.</span> <span class="toc-text">霍特林变换（Hotelling
+transform）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.7.</span> <span class="toc-text">协方差矩阵与特征值</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -244,10 +519,10 @@
 	var yiliaConfig = {
 		mathjax: [object Object],
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,
 		root: "/",

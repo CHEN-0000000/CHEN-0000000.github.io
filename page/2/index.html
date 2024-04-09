@@ -132,6 +132,134 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-现代通信原理第二章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/03/16/%E7%8E%B0%E4%BB%A3%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E7%AC%AC%E4%BA%8C%E7%AB%A0/">现代通信原理第二章</a>
+    </h1>
+  
+
+        
+        <a href="/2024/03/16/%E7%8E%B0%E4%BB%A3%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86%E7%AC%AC%E4%BA%8C%E7%AB%A0/" class="archive-article-date">
+  	<time datetime="2024-03-16T14:10:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- toc -->
+<ul>
+<li><a href="#第二章-确知信号">第二章 确知信号</a>
+<ul>
+<li><a href="#21-确知信号的类型">2.1 确知信号的类型</a></li>
+<li><a href="#22确知信号的频域性质">2.2确知信号的频域性质</a></li>
+<li><a href="#23-确知信号的时域性质">2.3 确知信号的时域性质</a></li>
+</ul></li>
+</ul>
+<!-- tocstop -->
+<h2><span id="第二章-确知信号">第二章 确知信号</span></h2>
+<h3><span id="21-确知信号的类型">2.1 确知信号的类型</span></h3>
+<ul>
+<li>能量信号：能量有限，平均功率为0</li>
+<li>功率信号：功率有限，能量无穷大</li>
+</ul>
+<h3><span id="22确知信号的频域性质">2.2确知信号的频域性质</span></h3>
+<ul>
+<li>以<span class="math inline">\(\omega\)</span>为自变量的频谱密度是以<span class="math inline">\(f\)</span>为自变量的频谱密度的<span class="math inline">\(2\pi\)</span>倍</li>
+<li>频域卷积性质：<span class="math inline">\(p(t)x(t)-&gt;\dfrac{1}{2\pi}P(\omega)*X(\omega)\)</span></li>
+</ul>
+<h4><span id="221-功率信号的频谱">2.2.1 功率信号的频谱</span></h4>
+<p>频谱：离散版 频谱密度：连续版</p>
+<ul>
+<li>频谱：<span class="math inline">\(C_n=C(nf_0)=\dfrac{1}{T_0}\int^{T_0/2}_{-T_0/2}s(t)e^{-j2\pi
+ntf_0}dt\)</span></li>
+<li>展开为傅里叶级数：<span class="math inline">\(s(t)=\sum^{\infty}_{-\infty}C_ne^{j2\pi
+nt/T_0}\)</span></li>
+</ul>
+<h4><span id="222-能量信号的频谱密度">2.2.2 能量信号的频谱密度</span></h4>
+<ul>
+<li>频谱密度：<span class="math inline">\(S(f)=\int^{\infty}_{-\infty}s(t)e^{-j2\pi
+ft}dt\)</span></li>
+<li>原信号：<span class="math inline">\(S(T)=\int^{\infty}_{-\infty}S(f)e^{j2\pi
+ft}df\)</span></li>
+</ul>
+<h4><span id="223能量信号的能量谱密度">2.2.3能量信号的能量谱密度</span></h4>
+<ul>
+<li><p><span class="math inline">\(E=\int^{\infty}_{-\infty}s^2(t)dt\)</span></p></li>
+<li><p>巴塞伐尔定理：<span class="math inline">\(E=\int^{\infty}_{-\infty}|S(f)|^2df\)</span></p></li>
+<li><p>能量谱密度：<span class="math inline">\(G(f)=|S(f)|^2\)</span></p></li>
+<li><p><span class="math inline">\(s(t)\)</span>为实函数时，有：<span class="math inline">\(E=2\int^{\infty}_{0}G(f)df\)</span></p></li>
+</ul>
+<h4><span id="224功率信号的功率谱密度">2.2.4功率信号的功率谱密度</span></h4>
+<ul>
+<li><p><span class="math inline">\(E=\int^{T/2}_{-T/2}s^2_T(t)dt=\int^{\infty}_{-\infty}|S_T(f)|^2df\)</span></p></li>
+<li><p>功率谱密度：<span class="math inline">\(P(f)=lim_{T-&gt;0}\dfrac{1}{T}|S_T(f)|^2\)</span></p></li>
+<li><p>信号功率：<span class="math inline">\(P=\int^{\infty}_{-\infty}P(f)df\)</span></p></li>
+<li><p>周期信号：<span class="math inline">\(P=\dfrac{1}{T_0}\int^{T_0/2}_{-T_0/2}s^2(t)dt\)</span>,由巴塞伐尔，有<span class="math inline">\(P=\sum^{+\infty}_{n=-\infty}|C_n|^2\)</span>】</p>
+<p>功率谱密度：<span class="math inline">\(P(f)=\sum^{\infty}_{n=-\infty}|C(f)|^2\delta(f-nf_0)\)</span></p></li>
+</ul>
+<h3><span id="23-确知信号的时域性质">2.3 确知信号的时域性质</span></h3>
+<h4><span id="231-能量信号的自相关函数">2.3.1 能量信号的自相关函数</span></h4>
+<ul>
+<li>自相关函数的定义：<span class="math inline">\(R(\tau)=\int^{\infty}_{-\infty}s(t)s(t+\tau)dt\)</span></li>
+<li><span class="math inline">\(R(\tau)\)</span>为偶函数</li>
+<li>与能量谱密度的关系：<span class="math inline">\(R(\tau)=\int^{\infty}_{-\infty}|S^2(f)|e^{j2\pi
+f\tau}df\)</span></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/现代通信原理//" class="article-tag-list-link color2">现代通信原理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-信息论笔记1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
